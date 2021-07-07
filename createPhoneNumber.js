@@ -18,3 +18,8 @@ function formatPhoneNumber( numberArray ){
 
     return format
 }
+
+// Using reduce & replace
+function reducePhoneNumber( numberArray ){
+    return numberArray.reduce( (placeholder, digit) => placeholder.replace("x", digit), "(xxx) xxx-xxxx")
+}
