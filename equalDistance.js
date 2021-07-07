@@ -41,7 +41,7 @@ function returnToStart( array ){
 // 
 
 // Using a switch statement
-function returnToStart( array ){
+function switchReturnToStart( array ){
     let dx = 0
     let dy = 0
     let dt = array.length
@@ -58,6 +58,20 @@ function returnToStart( array ){
     return dt === 10 && dx === 0 && dy === 0
 }
 
+
+// 
+// METHOD 3
+// 
+
+// Using a filter
+function filterReturnToStart( array ){
+    function count(value){
+        return array.filter( function(a){ return a === value}).length
+    }
+
+    return array.length == 10 && count('n') === count('s') && count('w') === count('e')
+}
+
 // SAMPLE SETS
 const arrayOne = ['n','s','n','s','n','s','n','s','n','s'] // true
 const arrayTwo = ['w','e','w','e','w','e','w','e','w','e','w','e'] // false
@@ -72,7 +86,13 @@ console.log( returnToStart( arrayThree ) )
 console.log( returnToStart( arrayFour ) )
 
 console.log( "Method 2 Tests:" )
-console.log( returnToStart( arrayOne ) )
-console.log( returnToStart( arrayTwo ) )
-console.log( returnToStart( arrayThree ) )
-console.log( returnToStart( arrayFour ) )
+console.log( switchReturnToStart( arrayOne ) )
+console.log( switchReturnToStart( arrayTwo ) )
+console.log( switchReturnToStart( arrayThree ) )
+console.log( switchReturnToStart( arrayFour ) )
+
+console.log( "Method 3 Tests:" )
+console.log( filterReturnToStart( arrayOne ) )
+console.log( filterReturnToStart( arrayTwo ) )
+console.log( filterReturnToStart( arrayThree ) )
+console.log( filterReturnToStart( arrayFour ) )
