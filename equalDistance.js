@@ -66,7 +66,7 @@ function switchReturnToStart( array ){
 // Using a filter
 function filterReturnToStart( array ){
     function count(value){
-        return array.filter( function(a){ return a === value}).length
+        return array.filter( a => a === value ).length
     }
 
     return array.length == 10 && count('n') === count('s') && count('w') === count('e')
