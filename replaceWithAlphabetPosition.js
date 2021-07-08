@@ -16,11 +16,10 @@ function alphabetPosition(text) {
 const alphabetPosition2 = text => {
     return text
         .toUpperCase()
-        .match(char.match(/[a-z]/i)
+        .match(/[a-z]/gi)
         .map( character => character.charCodeAt() - 64 )
         .join(' ')
 }
-
 
 // SAMPLE DATA
 string1 = "The sunset sets at twelve o' clock."
@@ -32,3 +31,5 @@ result2 = "20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20"
 // TESTS
 console.log( alphabetPosition(string1) === result1)
 console.log( alphabetPosition(string2) === result2)
+console.log( alphabetPosition2(string1) === result1)
+console.log( alphabetPosition2(string2) === result2)
