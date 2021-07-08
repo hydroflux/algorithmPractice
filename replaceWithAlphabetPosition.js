@@ -2,14 +2,24 @@
 // Given a string, replace every letter with its position in the alphabet
 // If anything in the text isn't a letter, ignore it and don't return it
 
+// METHOD 1
 function alphabetPosition(text) {
     const isLetter = (char) => char.match(/[a-z]/i)
     
     const onlyLetters = text.split('').filter( isLetter )
     const convertedLetters = onlyLetters.map( letter => letter.toLowerCase().charCodeAt(0) - 96 )
   
-    return convertedLetters.join(" ");
+    return convertedLetters.join(' ');
   }
+
+// METHOD 2
+const alphabetPosition2 = text => {
+    return text
+        .toUpperCase()
+        .match(char.match(/[a-z]/i)
+        .map( character => character.charCodeAt() - 64 )
+        .join(' ')
+}
 
 
 // SAMPLE DATA
