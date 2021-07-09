@@ -24,6 +24,14 @@ const persistence2 = num => {
         : 0
 }
 
+// METHOD 3
+function persistence3(num) {
+  for (var i = 0; num > 9; i++) {
+    num = num.toString().split('').reduce((t, c) => c * t);
+  }
+  return i;
+}
+
 // TESTS
 console.log( persistence(39) === 3 )
 console.log( persistence(4) === 0 )
@@ -33,3 +41,7 @@ console.log( persistence2(39) === 3 )
 console.log( persistence2(4) === 0 )
 console.log( persistence2(25) === 2 )
 console.log( persistence2(999) === 4 )
+console.log( persistence3(39) === 3 )
+console.log( persistence3(4) === 0 )
+console.log( persistence3(25) === 2 )
+console.log( persistence3(999) === 4 )
