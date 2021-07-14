@@ -6,10 +6,13 @@
 // METHOD 1
 function getMiddle(s)
 {
-  return s.length % 2 == 0
+  return s.length % 2 === 0
   ? s.slice( s.length/2 - 1 , s.length / 2 + 1)
   : s[Math.floor(s.length/2)]
 }
+
+// METHOD 2
+const getMiddle2 = string => string.substr(Math.ceil(string.length / 2 - 1), string.length % 2 === 0 ? 2 : 1)
 
 // TESTS
 console.log(getMiddle("test") === "es")
