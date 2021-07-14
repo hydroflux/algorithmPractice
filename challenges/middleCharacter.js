@@ -24,6 +24,7 @@ const getMiddle3 = string => {
         return string.charAt( middleIndex )
     }
 }
+
 // TESTS
 console.log(getMiddle("test") === "es")
 console.log(getMiddle("testing") === "t")
