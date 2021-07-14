@@ -14,6 +14,16 @@ function getMiddle(s)
 // METHOD 2
 const getMiddle2 = string => string.substr(Math.ceil(string.length / 2 - 1), string.length % 2 === 0 ? 2 : 1)
 
+// METHOD 3
+const getMiddle3 = string => {
+    let middleIndex = string.length / 2
+
+    if ( string.length % 2 === 0 ) {
+        return string.slice( middleIndex - 1, middleIndex + 1 )
+    } else {
+        return string.charAt( middleIndex )
+    }
+}
 // TESTS
 console.log(getMiddle("test") === "es")
 console.log(getMiddle("testing") === "t")
