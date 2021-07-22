@@ -43,3 +43,9 @@ const dividedBy = x => {
       return Math.round(y / x)
     } 
 }
+
+// TEST CASES
+console.log(seven(times(five())) === 35)
+console.log(four(plus(nine())) === 13)
+console.log(eight(minus(three())) === 5)
+console.log(six(dividedBy(two())) === 3)
