@@ -24,11 +24,22 @@ const plus = x => {
     return function(y){
       return x + y
     } 
-  }
-  
-  const minus = x => {
+}
+
+const minus = x => {
     return function(y){
       return y - x
     } 
-  }
+}
+
+const times = x => {
+    return function(y){
+      return x * y
+    } 
+}
   
+const dividedBy = x => {
+    return function(y){
+      return Math.round(y / x)
+    } 
+}
