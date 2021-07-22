@@ -44,6 +44,30 @@ const dividedBy = x => {
     } 
 }
 
+// METHOD 2
+const n = function(digit) {
+    return function(operator) {
+      return operator ? operator(digit) : digit
+    }
+}
+
+const zero2 = n(0)
+const one2 = n(1)
+const two2 = n(2)
+const three2 = n(3)
+const four2 = n(4)
+const five2 = n(5)
+const six2 = n(6)
+const seven2 = n(7)
+const eight2 = n(8)
+const nine2 = n(9)
+
+function plus2(x) { return function(y) { return y + x } }
+function minus2(x) { return function(y) { return y - x } }
+function times2(x) { return function(y) { return y * x } }
+function dividedBy2(x) { return function(y) { return Math.floor(y / x) } }
+
+
 // TEST CASES
 console.log(seven(times(five())) === 35)
 console.log(four(plus(nine())) === 13)
