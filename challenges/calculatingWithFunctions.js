@@ -19,3 +19,16 @@ const six = operator => operator ? operator(6) : 6
 const seven = operator => operator ? operator(7) : 7
 const eight = operator => operator ? operator(8) : 8
 const nine = operator => operator ? operator(9) : 9
+
+const plus = x => {
+    return function(y){
+      return x + y
+    } 
+  }
+  
+  const minus = x => {
+    return function(y){
+      return y - x
+    } 
+  }
+  
