@@ -3,3 +3,7 @@
 
 // METHOD 1
 const solution = (str, ending) => str.endsWith(ending)
+
+// TEST CASES
+console.log(solution('abc', 'bc') === true)
+console.log(solution('abc', 'd') === false)
