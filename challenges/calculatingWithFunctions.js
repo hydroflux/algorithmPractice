@@ -40,7 +40,7 @@ const times = x => {
   
 const dividedBy = x => {
     return function(y){
-      return Math.round(y / x)
+      return Math.floor(y / x)
     } 
 }
 
@@ -49,3 +49,5 @@ console.log(seven(times(five())) === 35)
 console.log(four(plus(nine())) === 13)
 console.log(eight(minus(three())) === 5)
 console.log(six(dividedBy(two())) === 3)
+console.log(two(dividedBy(four())) === 0)
+console.log(five(dividedBy(eight())) === 0)
