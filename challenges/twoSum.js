@@ -8,13 +8,18 @@
 // items will be numbers; target will always be the sum of two different items from that array)
 
 // METHOD 1
-const twoSum(array, target){
-    for (let i = 0; i < numbers.length; i++){
-        let element = numbers[i]
-        let match = numbers.filter( value => numbers.indexOf(value) !== i )
+const twoSum = (array, target) => {
+    for (let i = 0; i < array.length; i++){
+        let element = array[i]
+        let match = array.filter( value => array.indexOf(value) !== i )
                            .find( value => value + element === target )
         if (match){
-          return [i, numbers.indexOf(match)]
+          return [i, array.indexOf(match)]
         }
       }
 }
+
+// TESTS
+console.log( twoSum([1,2,3], 4) == [0,2])
+console.log( twoSum([1234, 5678, 9012], 14690) == [1, 2])
+console.log( twoSum([2, 2, 3], 4) == [0, 1])
