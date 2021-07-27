@@ -19,7 +19,40 @@ const twoSum = (array, target) => {
       }
 }
 
+// EQUIVALENT ARRAYS FUNCTION
+const equivalentArrays = (a, b) => {
+    if ( a === b ) return true
+    if ( a == null || b == null ) return false
+    if ( a.length !== b.length ) return false
+
+    for ( let i = 0; i < a.length; i++ ){
+        if ( a.sort()[i] !== b.sort()[i]) return false
+    }
+    return true
+}
+
 // TESTS
-console.log( twoSum([1,2,3], 4) == [0,2])
-console.log( twoSum([1234, 5678, 9012], 14690) == [1, 2])
-console.log( twoSum([2, 2, 3], 4) == [0, 1])
+const array1 = [1,2,3]
+const solution1 = [0,2]
+console.log( 
+    equivalentArrays(
+        twoSum( array1, 4),
+        solution1
+    )
+)
+const array2 = [1234, 5678, 9012]
+const solution2 = [1, 2]
+console.log( 
+    equivalentArrays(
+        twoSum( array2, 14690),
+        solution2
+    )
+)
+const array3 = [2, 2, 3]
+const solution3 = [0, 1]
+console.log( 
+    equivalentArrays(
+        twoSum( array3, 4),
+        solution3
+    )
+)
