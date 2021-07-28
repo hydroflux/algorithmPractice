@@ -10,3 +10,21 @@
 // Float parameter "window" must be less than h
 // The ball can only be seen if the height of the rebounding ball is strictly greater than the window parameter
 
+// METHOD 1
+function bouncingBall(h,  bounce,  window) {
+    if ( h <= 0 ) return -1
+    if ( bounce <= 0 || bounce >= 1 ) return -1
+    if ( window >= h ) return -1
+    
+    count = 0
+    while (h > window){
+      count += 1
+      if (bounce * h > window) {
+        count += 1
+      }
+      
+      h = bounce * h
+    }
+    
+    return count
+}
