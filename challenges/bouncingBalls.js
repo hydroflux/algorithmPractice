@@ -39,3 +39,5 @@ const bouncingBall2 = (h, bounce, window) => {
 // TESTS
 console.log( bouncingBall(3.0, 0.66, 1.5) === 3 )
 console.log( bouncingBall(30.0, 0.66, 1.5) === 15 )
+console.log( bouncingBall2(3.0, 0.66, 1.5) === 3 )
+console.log( bouncingBall2(30.0, 0.66, 1.5) === 15 )
