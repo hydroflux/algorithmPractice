@@ -28,3 +28,7 @@ function bouncingBall(h,  bounce,  window) {
     
     return count
 }
+
+// TESTS
+console.log( bouncingBall(3.0, 0.66, 1.5) === 3 )
+console.log( bouncingBall(30.0, 0.66, 1.5) === 15 )
