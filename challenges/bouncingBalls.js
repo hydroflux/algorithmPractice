@@ -29,6 +29,13 @@ function bouncingBall(h,  bounce,  window) {
     return count
 }
 
+// METHOD 2
+const bouncingBall2 = (h, bounce, window) => {
+    let rebounds = -1
+    if ( bounce > 0 && bounce < 1 ) while ( h > window ) rebounds += 2, h *= bounce
+    return rebounds
+}
+
 // TESTS
 console.log( bouncingBall(3.0, 0.66, 1.5) === 3 )
 console.log( bouncingBall(30.0, 0.66, 1.5) === 15 )
