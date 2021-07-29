@@ -17,3 +17,25 @@ If it is the case we will return k, if not return -1.
 
 Note: n and p will always be given as strictly positive integers. */
 
+// METHOD 1
+function digPow(n, p){
+    const numberArray = String(n).split('')
+    const reducer = (total, element) => total + element ** p
+    
+    let numberArrayTotal = 0
+    for ( i = 0; i < numberArray.length ; i ++ ){
+      numberArrayTotal += numberArray[i] ** p
+      p ++
+    }
+    
+    let k = 1
+    while ( numberArrayTotal >= k * n ){
+      if ( k * n === numberArrayTotal ){
+        return k
+      }
+  
+      k ++
+    }
+    
+    return -1
+}
