@@ -46,8 +46,12 @@ const digPow2 = ( n, p ) => {
     let x = String(n).split("").reduce(( s, d, i ) => s + Math.pow(d, p + i), 0)
     return x % n ? -1 : x / n
 }
+// **** REMEMBER TO LOOK FOR OPTIONAL ARGUMENTS WITH ITERATORS / ENUMERATORS
 
 // TESTING
 console.log(digPow(89, 1) === 1)
 console.log(digPow(92, 1) === -1)
 console.log(digPow(46288, 3) === 51)
+console.log(digPow2(89, 1) === 1)
+console.log(digPow2(92, 1) === -1)
+console.log(digPow2(46288, 3) === 51)
