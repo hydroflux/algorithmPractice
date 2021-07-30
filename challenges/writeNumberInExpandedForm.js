@@ -21,6 +21,15 @@ function expandedForm(num) {
     }).join('')
 }
 
+// METHOD 2
+const expandedForm2 = n => n.toString()
+                            .split("")
+                            .reverse()
+                            .map( ( a, i ) => a * Math.pow(10, i) )
+                            .filter( a => a > 0 )
+                            .reverse()
+                            .join(" + ")
+
 // TESTING
 console.log( expandedForm(12) === '10 + 2' )
 console.log( expandedForm(42) === '40 + 2' )
