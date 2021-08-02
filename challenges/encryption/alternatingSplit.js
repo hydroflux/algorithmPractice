@@ -14,3 +14,6 @@ function decrypt(encryptedText, n)
 For both methods:
 If the input-string is null or empty return exactly this value!
 If n is <= 0 then return the input text. */
+
+
+// METHOD 1
