@@ -18,6 +18,8 @@ If n is <= 0 then return the input text. */
 
 // METHOD 1 - Encryption
 function encrypt(text, n) {
+    if ( text === null ) return null
+  
     const alternatingSplit = (text, arg = 'even') => text.split('').filter( (char, index) => {
       return arg == 'even' ? index % 2 === 0
       : index % 2 !== 0
