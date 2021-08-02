@@ -30,6 +30,27 @@ function encrypt(text, n) {
     return text
 }
 
+function decrypt(encryptedText, n) {
+    if ( n <= 0 ) return encryptedText
+    
+    const midpoint = Math.floor(encryptedText.length / 2)
+    const recrypt = text => {
+      let newText = ''
+      let evens = text.slice(midpoint)
+      let odds = text.slice(0, midpoint)
+      for ( i = 0 ; i < odds.length ; i++ ){
+        newText = `${newText}${evens[i]}${odds[i]}`
+      }
+      return evens.length > odds.length ? newText += evens[evens.length - 1] : newText
+    }
+    
+    for ( j = 0; j < n ; j ++ ){
+      encryptedText = `${recrypt(encryptedText)}`
+    }
+    
+    return encryptedText
+  }
+
 // TEST CASES
 console.log(encrypt("This is a test!", 0) === "This is a test!");
 console.log(encrypt("This is a test!", 1) === "hsi  etTi sats!");
