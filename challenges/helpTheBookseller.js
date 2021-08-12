@@ -24,3 +24,4 @@ If L or M are empty return string is "" (Clojure and Racket should return an emp
 
 Note:
 In the result codes and their values are in the same order as in M. */
+
