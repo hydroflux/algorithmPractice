@@ -51,6 +51,15 @@ function stockList(listOfArt, listOfCat){
     return ''
 }
 
+// METHOD 2
+const stockList2 = ( array, categories ) => {
+    if (!array.length || !categories.length ) return ''
+    return categories.map( w => {
+        const s = array.reduce( ( a, b ) => a + ( b.charAt(0) === w ? +b.split(' ')[1] : 0), 0)
+        return `(${w} : ${s})`
+    }).join(' - ')
+}
+
 // TEST CASES
 let books = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"]
 let categories = ["A", "B"]
