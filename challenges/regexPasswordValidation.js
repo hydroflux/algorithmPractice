@@ -22,7 +22,6 @@ function validate(password) {
     return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*[&%$])(?!.*[-!$%^&*()_+|~=`{}\[\]:";'<>?, .\/]).{6,}$/.test(password);
 }
 
-
 // METHOD 2
 const validate2 = password => {
     return  /^[A-Za-z0-9]{6,}$/.test(password) &&
