@@ -25,3 +25,28 @@ If L or M are empty return string is "" (Clojure and Racket should return an emp
 Note:
 In the result codes and their values are in the same order as in M. */
 
+// METHOD 1
+function stockList(listOfArt, listOfCat){
+    const categoryInstances = ( list, c ) => list.filter( book => book[0] === c )
+    const categoryCount = ( list ) => list.reduce( (acc, book) => parseInt(book.split(" ")[1]) + acc, 0 )
+    const resultObject = () => {
+      let categoryObject = {}
+      listOfCat.map( c => categoryObject[c] = categoryCount(categoryInstances(listOfArt, c)) )
+      
+      for ( const [ key, value ] of Object.entries(categoryObject) ) {
+        if ( value > 0 ){
+          return categoryObject
+        }
+      }
+      
+      return 0
+    }
+    
+    if ( resultObject() !== 0 ){
+      let resultArray = [] 
+      for ( [key, value] of Object.entries( resultObject() )) resultArray.push(`(${key} : ${value})`)
+      return resultArray.join(' - ')
+    }
+    
+    return ''
+}
