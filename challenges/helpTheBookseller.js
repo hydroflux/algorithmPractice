@@ -65,8 +65,10 @@ let books = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"]
 let categories = ["A", "B"]
 let result = "(A : 200) - (B : 1140)"
 console.log( stockList( books, categories ) === result )
+console.log( stockList2( books, categories ) === result )
 
 books = ["CBART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"]
 categories = ["A", "B", "C", "W"]
 result = "(A : 0) - (B : 114) - (C : 70) - (W : 0)"
 console.log( stockList( books, categories ) === result )
+console.log( stockList2( books, categories ) === result )
