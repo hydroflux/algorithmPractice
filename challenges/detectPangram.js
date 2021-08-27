@@ -20,11 +20,16 @@ const isPangram = string => {
 }
 
 // METHOD 2 => simpler alphabet definition, using 'every' & 'includes' with a straight return statement
+// *** BEST METHOD ***
 const isPangram2 = string => {
     return 'abcdefghijklmnopqrstuvwxyz'
         .split('')
         .every( letter => string.toLowerCase().includes( letter ) )
 }
+
+// METHOD 3 => using regex
+// *** SIMPLEST METHOD ***
+const isPangram3 = string => (string.match(/([a-z])(?!.*\1)/ig) || []).length === 26
 
 // TEST CASES
 string1 = 'The quick brown fox jumps over the lazy dog.'
