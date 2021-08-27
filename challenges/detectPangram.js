@@ -4,7 +4,7 @@
 For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
 Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation. */
 
-// METHOD 1
+// METHOD 1 => Status Quo
 const isPangram = string => {
     let alphabetObject = {}
     for (i = 65; i <= 90; i++) {
@@ -17,6 +17,13 @@ const isPangram = string => {
     }
 
     return true
+}
+
+// METHOD 2 => simpler alphabet definition, using 'every' & 'includes' with a straight return statement
+const isPangram2 = string => {
+    return 'abcdefghijklmnopqrstuvwxyz'
+        .split('')
+        .every( letter => string.toLowerCase().includes( letter ) )
 }
 
 // TEST CASES
