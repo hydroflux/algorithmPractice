@@ -18,3 +18,10 @@ const isPangram = string => {
 
     return true
 }
+
+// TEST CASES
+string1 = 'The quick brown fox jumps over the lazy dog.'
+string2 = 'This is not a pangram.'
+
+console.log( isPangram(string1) === true )
+console.log( isPangram(string2) === false )
