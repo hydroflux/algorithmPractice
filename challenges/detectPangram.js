@@ -6,5 +6,15 @@ Given a string, detect whether or not it is a pangram. Return True if it is, Fal
 
 // METHOD 1
 const isPangram = string => {
-    
+    let alphabetObject = {}
+    for (i = 65; i <= 90; i++) {
+        let letter = String.fromCharCode(i).toLowerCase()
+        alphabetObject[letter] = string.toLowerCase()
+                                        .split('')
+                                        .filter( char => char === letter )
+                                        .length
+        if ( alphabetObject[letter] < 1 ) return false
+    }
+
+    return true
 }
