@@ -32,3 +32,5 @@ string2 = 'This is not a pangram.'
 
 console.log( isPangram(string1) === true )
 console.log( isPangram(string2) === false )
+console.log( isPangram2(string1) === true )
+console.log( isPangram2(string2) === false )
