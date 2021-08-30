@@ -25,3 +25,20 @@ const findOdd = array => {
 
     return 0
 }
+
+// TESTING
+const array1 = [1,2,2,3,3,3,4,3,3,3,2,2,1]
+const array2 = [20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]
+const array3 = [1,1,2,-2,5,2,4,4,-1,-2,5]
+const array4 = [20,1,1,2,2,3,3,5,5,4,20,4,5]
+const array5 = [10]
+const array6 = [5,4,3,2,1,5,4,3,2,10,10]
+const array7 = [1,1,1,1,1,1,10,1,1,1,1]
+
+console.log( findOdd(array1) === 4 )
+console.log( findOdd(array2) === 5 )
+console.log( findOdd(array3) === -1 )
+console.log( findOdd(array4) === 5 )
+console.log( findOdd(array5) === 10 )
+console.log( findOdd(array6) === 1 )
+console.log( findOdd(array7) === 10 )
