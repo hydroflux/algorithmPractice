@@ -63,8 +63,16 @@ const string3 = 'baabcd'
 const string4 = 'adkjdkeock'
 const string5 = ''
 
+// METHOD 1 TESTS
 console.log( longestPalindrome( string1 ) === 9 )
 console.log( longestPalindrome( string2 ) === 7 )
 console.log( longestPalindrome( string3 ) === 4 )
 console.log( longestPalindrome( string4 ) === 1 )
 console.log( longestPalindrome( string5 ) === 0 )
+
+// METHOD 2 TESTS
+console.log( longestPalindrome2( string1 ) === 9 )
+console.log( longestPalindrome2( string2 ) === 7 )
+console.log( longestPalindrome2( string3 ) === 4 )
+console.log( longestPalindrome2( string4 ) === 1 )
+console.log( longestPalindrome2( string5 ) === 0 )
