@@ -36,3 +36,16 @@ const longestPalindrome = string => {
 
     return palindromeLength
 }
+
+// TESTING
+const string1 = 'baablkj12345432133d'
+const string2 = 'abcdcba'
+const string3 = 'baabcd'
+const string4 = 'adkjdkeock'
+const string5 = ''
+
+console.log( longestPalindrome( string1 ) === 9 )
+console.log( longestPalindrome( string2 ) === 7 )
+console.log( longestPalindrome( string3 ) === 4 )
+console.log( longestPalindrome( string4 ) === 1 )
+console.log( longestPalindrome( string5 ) === 0 )
