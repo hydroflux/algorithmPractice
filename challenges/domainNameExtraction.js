@@ -36,9 +36,18 @@ const url4 = 'https://www.9am-2hespjyl-f0m2mkpi39ns5y.co.uk/img/'
 const url5 = '0syl3aw0a2.de'
 const url6 = 'http://www.loxcdy1oano6t13uk0-8qjs-vf.co/archive/'
 
+// Method 1 Tests
 console.log( domainName( url1 ) === 'github' )
 console.log( domainName( url2 ) === 'google' )
 console.log( domainName( url3 ) === 'pvio-br2x0w80tpx' )
 console.log( domainName( url4 ) === '9am-2hespjyl-f0m2mkpi39ns5y' )
 console.log( domainName( url5 ) === '0syl3aw0a2' )
 console.log( domainName( url6 ) === 'loxcdy1oano6t13uk0-8qjs-vf' )
+
+// Method 2 Tests
+console.log( domainName2( url1 ) === 'github' )
+console.log( domainName2( url2 ) === 'google' )
+console.log( domainName2( url3 ) === 'pvio-br2x0w80tpx' )
+console.log( domainName2( url4 ) === '9am-2hespjyl-f0m2mkpi39ns5y' )
+console.log( domainName2( url5 ) === '0syl3aw0a2' )
+console.log( domainName2( url6 ) === 'loxcdy1oano6t13uk0-8qjs-vf' )
