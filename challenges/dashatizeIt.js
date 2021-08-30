@@ -25,6 +25,9 @@ const dashatize = number => {
     return dashedString
 }
 
+// METHOD 2 => More Regex
+const dashatize2 = number => isNaN( number ) ? 'NaN' : number.toString().match(/([13579]|[02468]+)/g).join('-')
+
 // TESTING
 let number1 = 274
 let number2 = 5311
