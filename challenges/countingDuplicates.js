@@ -43,9 +43,18 @@ const string4 = 'abcdefghABCDabcABA ?'
 const string5 = 'abcdefghijklmnABCDEFGabcdefabcdeABCDabcABA'
 const string6 = 'abcdefABCABa'
 
+// Method 1 Tests
 console.log( duplicateCount( string1 ) === 2 )
 console.log( duplicateCount( string2 ) === 2 )
 console.log( duplicateCount( string3 ) === 2 )
 console.log( duplicateCount( string4 ) === 4 )
 console.log( duplicateCount( string5 ) === 7 )
 console.log( duplicateCount( string6 ) === 3 )
+
+// Method 2 Tests
+console.log( duplicateCount2( string1 ) === 2 )
+console.log( duplicateCount2( string2 ) === 2 )
+console.log( duplicateCount2( string3 ) === 2 )
+console.log( duplicateCount2( string4 ) === 4 )
+console.log( duplicateCount2( string5 ) === 7 )
+console.log( duplicateCount2( string6 ) === 3 )
