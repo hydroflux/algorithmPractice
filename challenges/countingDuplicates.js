@@ -25,3 +25,18 @@ const duplicateCount = string => {
         .filter( char => char > 1 )
         .length
 }
+
+// TESTS
+const string1 = 'aabbcde'
+const string2 = 'aabBcde'
+const string3 = 'Indivisibilities'
+const string4 = 'abcdefghABCDabcABA ?'
+const string5 = 'abcdefghijklmnABCDEFGabcdefabcdeABCDabcABA'
+const string6 = 'abcdefABCABa'
+
+console.log( duplicateCount( string1 ) === 2 )
+console.log( duplicateCount( string2 ) === 2 )
+console.log( duplicateCount( string3 ) === 2 )
+console.log( duplicateCount( string4 ) === 4 )
+console.log( duplicateCount( string5 ) === 7 )
+console.log( duplicateCount( string6 ) === 3 )
