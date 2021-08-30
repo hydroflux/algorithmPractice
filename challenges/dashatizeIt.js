@@ -38,6 +38,7 @@ let number6 = 0
 let number7 = -1
 let number8 = -28369
 
+// Method 1 Tests
 console.log( dashatize(number1) === '2-7-4' )
 console.log( dashatize(number2) === '5-3-1-1' )
 console.log( dashatize(number3) === '86-3-20' )
@@ -46,3 +47,13 @@ console.log( dashatize(number5) === 'NaN' )
 console.log( dashatize(number6) === '0' )
 console.log( dashatize(number7) === '1' )
 console.log( dashatize(number8) === '28-3-6-9' )
+
+// Method 2 Tests
+console.log( dashatize2(number1) === '2-7-4' )
+console.log( dashatize2(number2) === '5-3-1-1' )
+console.log( dashatize2(number3) === '86-3-20' )
+console.log( dashatize2(number4) === '9-7-4-3-02' )
+console.log( dashatize2(number5) === 'NaN' )
+console.log( dashatize2(number6) === '0' )
+console.log( dashatize2(number7) === '1' )
+console.log( dashatize2(number8) === '28-3-6-9' )
