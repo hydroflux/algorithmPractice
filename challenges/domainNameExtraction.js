@@ -19,6 +19,15 @@ const domainName = url => {
       .slice( 0, host.indexOf('.') )
 }
 
+// METHOD 2 => Using replace & split
+const domainName2 = url => {
+    return url
+        .replace( 'https://', '' )
+        .replace( 'http://', '' )
+        .replace( 'www.', '' )
+        .split( '.' )[0]
+}
+
 // TESTING
 const url1 = 'http://github.com/carbonfive/raygun'
 const url2 = 'http://google.co.jp'
