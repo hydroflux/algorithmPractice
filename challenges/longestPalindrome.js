@@ -5,7 +5,7 @@ As an example, if the input was “I like racecars that go fast”, the substrin
 
 If the length of the input string is 0, the return value must be 0. */
 
-// METHOD 1
+// METHOD 1 => Status Quo
 const longestPalindrome = string => {
     if ( string.length === 0 ) return 0
     
@@ -35,6 +35,25 @@ const longestPalindrome = string => {
     }
 
     return palindromeLength
+}
+
+// METHOD 2 = > Using split, reverse, & join
+const longestPalindrome2 = string => {
+    let palindromeLength = 0;
+    for ( let i = 0 ; i < string.length ; i++)
+      for( let j = i ; j <= string.length ; j++){
+          let substring = string.substring( i , j )
+          let reverseSubstring = substring
+                                  .split('')
+                                  .reverse()
+                                  .join('')
+  
+          substring === reverseSubstring && substring.length > palindromeLength
+          ? palindromeLength = substring.length
+          : null
+      }
+  
+    return palindromeLength;
 }
 
 // TESTING
