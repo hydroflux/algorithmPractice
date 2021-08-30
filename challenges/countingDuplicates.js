@@ -9,3 +9,19 @@ Example
 "Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
 "aA11" -> 2 # 'a' and '1'
 "ABBA" -> 2 # 'A' and 'B' each occur twice */
+
+// METHOD 1
+const duplicateCount = string => {
+    let counter = {}
+    for ( i = 0 ; i < string.length ; i++ ){
+        char = string[i].toLowerCase()
+
+        counter[ char ]
+        ? counter[ char ] += 1
+        : counter[ char ] = 1
+    }
+
+    return Object.values(counter)
+        .filter( char => char > 1 )
+        .length
+}
