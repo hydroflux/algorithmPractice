@@ -10,7 +10,7 @@ Example
 "aA11" -> 2 # 'a' and '1'
 "ABBA" -> 2 # 'A' and 'B' each occur twice */
 
-// METHOD 1
+// METHOD 1 => Status Quo
 const duplicateCount = string => {
     let counter = {}
     for ( i = 0 ; i < string.length ; i++ ){
@@ -25,6 +25,15 @@ const duplicateCount = string => {
         .filter( char => char > 1 )
         .length
 }
+
+// METHOD 2 => Regex
+const duplicateCount2 = string => (string.toLowerCase()
+                                    .split('')
+                                    .sort()
+                                    .join('')
+                                    .match(/([^])\1+/g) || [])
+                                    .length
+
 
 // TESTS
 const string1 = 'aabbcde'
