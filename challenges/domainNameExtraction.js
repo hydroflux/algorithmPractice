@@ -28,6 +28,9 @@ const domainName2 = url => {
         .split( '.' )[0]
 }
 
+// METHOD 3 => Regex
+const domainName3 = url => url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1]
+
 // TESTING
 const url1 = 'http://github.com/carbonfive/raygun'
 const url2 = 'http://google.co.jp'
