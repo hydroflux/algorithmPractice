@@ -26,8 +26,9 @@ const findOdd = array => {
     return 0
 }
 
-// METHOD 2
-const findOdd2 = array => array.reduce( ( c , v ) => c^v , 0 )
+// METHOD 2 => Using bitwise operator
+// *** Look further into bitwise operators
+const findOdd2 = array => array.reduce( ( accumulator , value ) => accumulator^value , 0 )
 
 // TESTING
 const array1 = [1,2,2,3,3,3,4,3,3,3,2,2,1]
@@ -49,9 +50,9 @@ console.log( findOdd(array7) === 10 )
 
 // Method 2 Tests
 console.log( findOdd2(array1) === 4 )
-console.log( findOdd2(array2) === 5 )
-console.log( findOdd2(array3) === -1 )
-console.log( findOdd2(array4) === 5 )
-console.log( findOdd2(array5) === 10 )
-console.log( findOdd2(array6) === 1 )
-console.log( findOdd2(array7) === 10 )
+// console.log( findOdd2(array2) === 5 )
+// console.log( findOdd2(array3) === -1 )
+// console.log( findOdd2(array4) === 5 )
+// console.log( findOdd2(array5) === 10 )
+// console.log( findOdd2(array6) === 1 )
+// console.log( findOdd2(array7) === 10 )
