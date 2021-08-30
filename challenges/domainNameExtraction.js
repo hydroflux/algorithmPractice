@@ -54,3 +54,11 @@ console.log( domainName2( url3 ) === 'pvio-br2x0w80tpx' )
 console.log( domainName2( url4 ) === '9am-2hespjyl-f0m2mkpi39ns5y' )
 console.log( domainName2( url5 ) === '0syl3aw0a2' )
 console.log( domainName2( url6 ) === 'loxcdy1oano6t13uk0-8qjs-vf' )
+
+// Method 3 Tests
+console.log( domainName3( url1 ) === 'github' )
+console.log( domainName3( url2 ) === 'google' )
+console.log( domainName3( url3 ) === 'pvio-br2x0w80tpx' )
+console.log( domainName3( url4 ) === '9am-2hespjyl-f0m2mkpi39ns5y' )
+console.log( domainName3( url5 ) === '0syl3aw0a2' )
+console.log( domainName3( url6 ) === 'loxcdy1oano6t13uk0-8qjs-vf' )
