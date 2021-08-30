@@ -24,3 +24,22 @@ const dashatize = number => {
     if ( dashedString[0] === '-' ) dashedString = dashedString.substring( 1, dashedString.length )
     return dashedString
 }
+
+// TESTING
+let number1 = 274
+let number2 = 5311
+let number3 = 86320
+let number4 = 974302
+let number5 = NaN
+let number6 = 0
+let number7 = -1
+let number8 = -28369
+
+console.log( dashatize(number1) === '2-7-4' )
+console.log( dashatize(number2) === '5-3-1-1' )
+console.log( dashatize(number3) === '86-3-20' )
+console.log( dashatize(number4) === '9-7-4-3-02' )
+console.log( dashatize(number5) === 'NaN' )
+console.log( dashatize(number6) === '0' )
+console.log( dashatize(number7) === '1' )
+console.log( dashatize(number8) === '28-3-6-9' )
