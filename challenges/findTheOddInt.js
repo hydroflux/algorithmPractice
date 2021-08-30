@@ -38,6 +38,7 @@ const array5 = [10]
 const array6 = [5,4,3,2,1,5,4,3,2,10,10]
 const array7 = [1,1,1,1,1,1,10,1,1,1,1]
 
+// Method 1 Tests
 console.log( findOdd(array1) === 4 )
 console.log( findOdd(array2) === 5 )
 console.log( findOdd(array3) === -1 )
@@ -45,3 +46,12 @@ console.log( findOdd(array4) === 5 )
 console.log( findOdd(array5) === 10 )
 console.log( findOdd(array6) === 1 )
 console.log( findOdd(array7) === 10 )
+
+// Method 2 Tests
+console.log( findOdd2(array1) === 4 )
+console.log( findOdd2(array2) === 5 )
+console.log( findOdd2(array3) === -1 )
+console.log( findOdd2(array4) === 5 )
+console.log( findOdd2(array5) === 10 )
+console.log( findOdd2(array6) === 1 )
+console.log( findOdd2(array7) === 10 )
