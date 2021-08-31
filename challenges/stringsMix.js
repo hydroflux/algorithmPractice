@@ -36,3 +36,39 @@ The prefix =: is replaced by E:
 s1 = "mmmmm m nnnnn y&friend&Paul has heavy hats! &"
 s2 = "my frie n d Joh n has ma n y ma n y frie n ds n&"
 mix(s1, s2) --> "1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E:ss" */
+
+// METHOD 1 => Status Quo
+const mix = ( string_1, string_2 ) => {
+    const letterArray = string => {
+        return string.split('')
+                       .filter( letter => letter === letter.toLowerCase() && letter.toUpperCase() !== letter.toLowerCase() )
+    }
+
+    const stringArray_1 = letterArray( string_1 )
+    const stringArray_2 = letterArray( string_2 )
+    let stringMix = []
+
+    const populateStringMix = ( array, name ) => {
+        stringMix[name] = {}
+
+        array.forEach( letter => {
+            stringMix[name][letter]
+            ? stringMix[name][letter] += 1
+            : stringMix[name][letter] = 1
+        })
+
+        for ( const [ key , value ] of Object.entries( stringMix[name] )){
+            if ( value === 1 ) delete stringMix[name][key]
+        }
+    }
+
+    populateStringMix( stringArray_1, '1' )
+    populateStringMix( stringArray_2, '2' )
+
+}
+
+
+// TESTING
+const string_1 = "Are they here"
+const string_2 = "yes, they are here"
+console.log( mix(string_1, string_2))
