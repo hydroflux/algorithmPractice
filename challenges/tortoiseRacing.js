@@ -63,4 +63,12 @@ const race = ( v1, v2, lead ) => {
     return secondsToHMS(time_elapsed - 1)
 }
 
-console.log( race(v1, v2, lead) === true )
+// METHOD 2
+const race2 = ( v1, v2, lead ) => {
+    let time = lead / ( v2 - v1 )
+    return v2 > v1
+        ? [ Math.floor( time ),
+            Math.floor( time*60%60 ),
+            Math.floor( time*3600%60 )]
+        : null
+}
