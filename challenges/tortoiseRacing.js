@@ -26,11 +26,6 @@ Think of calculation by hand using only integers (in your code use or simulate i
 or Google: "convert decimal time to hours minutes seconds" */
 
 // METHOD 1 => Status Quo
-
-let v1 = 80
-let v2 = 100
-let lead = 40
-
 const race = ( v1, v2, lead ) => {
     if ( v1 >= v2 ) return null
 
@@ -72,3 +67,19 @@ const race2 = ( v1, v2, lead ) => {
             Math.floor( time*3600%60 )]
         : null
 }
+
+// TESTING
+const v1_1 = 720
+const v2_1 = 850
+const lead_1 = 70
+const v1_2 = 80
+const v2_2 = 91
+const lead_2 = 37
+const v1_3 = 80
+const v2_3 = 100
+const lead_3 = 40
+
+// Method 1 Tests
+console.log( race( v1_1, v2_1, lead_1 ) ) // [0, 32, 18]
+console.log( race( v1_2, v2_2, lead_2 ) ) // [3, 21, 49] 
+console.log( race( v1_3, v2_3, lead_3 ) ) // [2, 0, 0]
