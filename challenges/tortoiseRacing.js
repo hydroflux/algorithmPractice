@@ -24,3 +24,43 @@ In Fortran - as in any other language - the returned string is not permitted to 
 Tortoises don't care about fractions of seconds
 Think of calculation by hand using only integers (in your code use or simulate integer division)
 or Google: "convert decimal time to hours minutes seconds" */
+
+// METHOD 1 => Status Quo
+
+let v1 = 80
+let v2 = 100
+let lead = 40
+
+const race = ( v1, v2, lead ) => {
+    if ( v1 >= v2 ) return null
+
+    const feet_per_second = speed => speed / 3600
+
+    // Speed
+    let v1_fps = feet_per_second( v1 )
+    let v2_fps = feet_per_second( v2 )
+
+    // Time Elapsed
+    let time_elapsed = 0
+    
+    // Position
+    let v1_pos = lead
+    let v2_pos = 0
+    
+    while ( v1_pos > v2_pos ){
+        time_elapsed += 1
+        v1_pos += v1_fps
+        v2_pos += v2_fps
+    }
+
+    const secondsToHMS = time_elapsed => {
+        let hours = Math.floor( time_elapsed / 3600 )
+        let minutes = Math.floor( time_elapsed % 3600 / 60 )
+        let seconds = Math.floor( time_elapsed % 3600 % 60 )
+        return [ hours, minutes, seconds ]
+    }
+
+    return secondsToHMS(time_elapsed - 1)
+}
+
+console.log( race(v1, v2, lead) === true )
