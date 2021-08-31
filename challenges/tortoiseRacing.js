@@ -83,3 +83,8 @@ const lead_3 = 40
 console.log( race( v1_1, v2_1, lead_1 ) ) // [0, 32, 18]
 console.log( race( v1_2, v2_2, lead_2 ) ) // [3, 21, 49] 
 console.log( race( v1_3, v2_3, lead_3 ) ) // [2, 0, 0]
+
+// Method 2 Tests
+console.log( race2( v1_1, v2_1, lead_1 ) ) // [0, 32, 18]
+console.log( race2( v1_2, v2_2, lead_2 ) ) // [3, 21, 49] 
+console.log( race2( v1_3, v2_3, lead_3 ) ) // [2, 0, 0]
