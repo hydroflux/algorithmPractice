@@ -95,3 +95,18 @@ const mix = ( string_1, string_2 ) => {
             .map( entry => entry['name'] )
             .join( '/' )
 }
+
+// TESTING
+const array_1 = [ "Are they here", "yes, they are here" ]
+const array_2 = [ "looping is fun but dangerous", "less dangerous than coding" ]
+const array_3 = [" In many languages", " there's a pair of functions" ]
+const array_4 = [ "Lords of the Fallen", "gamekult" ]
+const array_5 = [ "codewars", "codewars" ]
+const array_6 = [ "A generation must confront the looming ", "codewarrs" ]
+
+console.log( mix( ...array_1 ) === "2:eeeee/2:yy/=:hh/=:rr" )
+console.log( mix( ...array_2 ) === "1:ooo/1:uuu/2:sss/=:nnn/1:ii/2:aa/2:dd/2:ee/=:gg" )
+console.log( mix( ...array_3 ) === "1:aaa/1:nnn/1:gg/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt" )
+console.log( mix( ...array_4 ) === "1:ee/1:ll/1:oo" )
+console.log( mix( ...array_5 ) === "" )
+console.log( mix( ...array_6 ) === "1:nnnnn/1:ooooo/1:tttt/1:eee/1:gg/1:ii/1:mm/=:rr" )
