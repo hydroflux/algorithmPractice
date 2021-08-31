@@ -46,7 +46,7 @@ const mix = ( string_1, string_2 ) => {
 
     const stringArray_1 = letterArray( string_1 )
     const stringArray_2 = letterArray( string_2 )
-    let stringMix = []
+    let stringMix = {}
 
     const populateStringMix = ( array, name ) => {
         stringMix[name] = {}
@@ -65,10 +65,33 @@ const mix = ( string_1, string_2 ) => {
     populateStringMix( stringArray_1, '1' )
     populateStringMix( stringArray_2, '2' )
 
+    let combinedStringMix = {}
+
+    for ( const [ key , value ] of Object.entries( stringMix )){
+        for ( const [ nestedKey , count ] of Object.entries( value )){
+            if ( combinedStringMix[ nestedKey ] ){
+                if ( combinedStringMix[ nestedKey ].count < count ){
+                    combinedStringMix[ nestedKey ].array = key
+                    combinedStringMix[ nestedKey ].name = `${ key }:${ nestedKey.repeat( count ) }`,
+                    combinedStringMix[ nestedKey ].count = count
+                } else if ( combinedStringMix[ nestedKey ].count === count ){
+                    combinedStringMix[ nestedKey ].array = `3`
+                    combinedStringMix[ nestedKey ].name = `=:${ nestedKey.repeat( count ) }`
+                }
+            } else {
+                combinedStringMix[ nestedKey ] = {
+                    array: key,
+                    letter: nestedKey,
+                    name: `${ key }:${ nestedKey.repeat( count ) }`,
+                    count: count
+                }
+            }
+        }
+    }
+
+    return Object.values( combinedStringMix )
+            .sort( ( a , b ) => a.count - b.count || b.array.localeCompare( a.array ) || b.letter.localeCompare( a.letter ) )
+            .reverse()
+            .map( entry => entry['name'] )
+            .join( '/' )
 }
-
-
-// TESTING
-const string_1 = "Are they here"
-const string_2 = "yes, they are here"
-console.log( mix(string_1, string_2))
