@@ -12,3 +12,29 @@ is transformed into
 Zero elements are defined by either 0 or "0". Some tests may include elements that are not number literals.
 
 You are NOT allowed to use any temporary arrays or objects. You are also not allowed to use any Array.prototype or Object.prototype methods. */
+
+// METHOD 1 => Status Quo
+const removeZeros = array => {
+    return array
+        .filter( value => parseInt(value) !== 0 )
+        .concat( '0'.repeat( array.filter( value => parseInt( value ) === 0 ).length )
+                    .split('')
+                    .map( value => parseInt( value )))
+}
+
+// TESTING
+const arraysEqual = ( a , b ) => {
+    if ( a === b ) return true
+    if ( a == null || b == null ) return false
+    if ( a.length !== b.length ) return false
+
+    for ( let i = 0 ; i < a.length ; i ++ ){
+        if ( a[i] !== b[i] ) return false
+    }
+
+    return true
+}
+
+const input = [7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]
+const solution = [7, 2, 3, 4, 6, 13, 78, 19, 14, 0, 0, 0, 0, 0, 0]
+console.log( arraysEqual( removeZeros( input ) , solution ) )
