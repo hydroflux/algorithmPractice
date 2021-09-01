@@ -9,3 +9,5 @@ const equivalentArrays = (a, b) => {
     }
     return true
 }
+
+export default equivalentArrays
