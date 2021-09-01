@@ -35,6 +35,30 @@ const permutations = string => {
     return permutationsArray
 }
 
+// METHOD 2 => using 'from', 'Set', substring, & concat
+const permutations2 = string => {
+    return ( string.length <= 1)
+            ? [ string ]
+            : Array.from(new Set(
+                string.split('')
+                      .map((char, index) => (
+                          permutations2( string.substr(0, index) + string.substr(index + 1)).map( p => char + p )
+                        ))
+                      .reduce(( accumulator, value ) => accumulator.concat(value), [])
+            ))}
+
+// Using 'Array.from( new Set (...) )' is enabling the single return statement in the ternary
+
+// Array.from()
+// The Array.from() static method creates a new, shallow-copied Array instance
+// from an array-like or iterable object.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+
+// Set
+// The 'Set' object lets you store unique values of any type,
+// whether primitive values or object references.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+
 // TESTING
 const string_1 = 'a'
 const string_2 = 'ab'
