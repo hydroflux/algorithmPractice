@@ -64,6 +64,12 @@ const string_1 = 'a'
 const string_2 = 'ab'
 const string_3 = 'aabb'
 
+// Method 1
 console.log( equivalentArrays( permutations( string_1 ), ['a'] ))
 console.log( equivalentArrays( permutations( string_2 ), ['ab', 'ba'] ))
 console.log( equivalentArrays( permutations( string_3 ), ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'] ))
+
+// Method 2
+console.log( equivalentArrays( permutations2( string_1 ), ['a'] ))
+console.log( equivalentArrays( permutations2( string_2 ), ['ab', 'ba'] ))
+console.log( equivalentArrays( permutations2( string_3 ), ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'] ))
