@@ -1,3 +1,5 @@
+import equivalentArrays from "../usefulFunctions/equivalentArrays.js"
+
 // CHALLENGE => Permutations
 /* In this kata you have to create all permutations of an input string and remove duplicates, if present. This means, you have to shuffle all letters from the input in all possible orders.
 
@@ -7,9 +9,6 @@ permutations('a'); // ['a']
 permutations('ab'); // ['ab', 'ba']
 permutations('aabb'); // ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa']
 The order of the permutations doesn't matter. */
-
-import equivalentArrays from "../usefulFunctions/equivalentArrays.js"
-
 
 // METHOD 1 => Status Quo
 const permutations = string => {
@@ -35,3 +34,12 @@ const permutations = string => {
     permute( characterArray )
     return permutationsArray
 }
+
+// TESTING
+const string_1 = 'a'
+const string_2 = 'ab'
+const string_3 = 'aabb'
+
+console.log( equivalentArrays( permutations( string_1 ), ['a'] ))
+console.log( equivalentArrays( permutations( string_2 ), ['ab', 'ba'] ))
+console.log( equivalentArrays( permutations( string_3 ), ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'] ))
