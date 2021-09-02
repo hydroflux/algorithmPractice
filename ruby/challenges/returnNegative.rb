@@ -18,6 +18,11 @@ def make_negative number
     number < 0 ? number : number * -1
 end
 
+# METHOD 2 => .abs
+def make_negative_2 number
+    -num.abs
+end
+
 # TESTING
 puts make_negative(1) == -1
 puts make_negative(-5) == -5
