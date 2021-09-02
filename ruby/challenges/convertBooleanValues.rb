@@ -14,5 +14,10 @@ def bool_to_word_2 boolean
 end
 
 # TESTING
+# Method 1
 puts bool_to_word(true) == 'Yes'
-puts bool_to_word(false) == "No"
+puts bool_to_word(false) == 'No'
+
+# Method 2
+puts bool_to_word_2(true) == 'Yes'
+puts bool_to_word_2(false) == 'No'
