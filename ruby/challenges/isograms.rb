@@ -8,3 +8,8 @@
     is_isogram("aba" ) == false
     is_isogram("moOse" ) == false # -- ignore letter case
 =end
+
+# METHOD 1 => Status Quo
+def is_isogram string
+    string.downcase.split('').uniq == string.downcase.split('')
+end
