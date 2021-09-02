@@ -20,10 +20,13 @@ end
 
 # METHOD 2 => .abs
 def make_negative_2 number
-    -num.abs
+    -number.abs
 end
 
 # TESTING
 puts make_negative(1) == -1
 puts make_negative(-5) == -5
 puts make_negative(0) == 0
+puts make_negative_2(1) == -1
+puts make_negative_2(-5) == -5
+puts make_negative_2(0) == 0
