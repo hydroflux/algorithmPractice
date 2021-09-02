@@ -14,6 +14,11 @@ def is_isogram string
     string.downcase.split('').uniq == string.downcase.split('')
 end
 
+# METHOD 2 => Using 'chars' Instead of 'split'
+def is_isogram_2 string
+    string.downcase.chars.uniq == string.downcase.chars
+end
+
 # TESTING
 string1 = "isogram"
 string2 = "Dermatoglyphics"
