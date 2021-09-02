@@ -13,3 +13,7 @@
     Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense.
 =end
 
+# METHOD 1 => Status Quo
+def make_negative number
+    number < 0 ? number : number * -1
+end
