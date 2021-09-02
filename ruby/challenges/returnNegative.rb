@@ -17,3 +17,8 @@
 def make_negative number
     number < 0 ? number : number * -1
 end
+
+# TESTING
+puts make_negative(1) == -1
+puts make_negative(-5) == -5
+puts make_negative(0) == 0
