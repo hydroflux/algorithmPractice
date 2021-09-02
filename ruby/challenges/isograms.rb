@@ -27,9 +27,18 @@ string4 = "moOse"
 string5 = "isIsogram"
 string6 = ""
 
+# Method 1 Testing
 puts( is_isogram(string1) == true )
 puts( is_isogram(string2) == true )
 puts( is_isogram(string3) == false )
 puts( is_isogram(string4) == false )
 puts( is_isogram(string5) == false )
 puts( is_isogram(string6) == true )
+
+# Method 2 Testing
+puts( is_isogram_2(string1) == true )
+puts( is_isogram_2(string2) == true )
+puts( is_isogram_2(string3) == false )
+puts( is_isogram_2(string4) == false )
+puts( is_isogram_2(string5) == false )
+puts( is_isogram_2(string6) == true )
