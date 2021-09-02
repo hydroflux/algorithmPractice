@@ -8,6 +8,11 @@ def bool_to_word boolean
     boolean == true ? "Yes" : "No"
 end
 
+# METHOD 2 => More Efficient solution
+def bool_to_word_2 boolean
+    !!boolean ? "Yes" : "No"
+end
+
 # TESTING
 puts bool_to_word(true) == 'Yes'
 puts bool_to_word(false) == "No"
