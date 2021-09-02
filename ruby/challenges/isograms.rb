@@ -13,3 +13,18 @@
 def is_isogram string
     string.downcase.split('').uniq == string.downcase.split('')
 end
+
+# TESTING
+string1 = "isogram"
+string2 = "Dermatoglyphics"
+string3 = "aba"
+string4 = "moOse"
+string5 = "isIsogram"
+string6 = ""
+
+puts( is_isogram(string1) == true )
+puts( is_isogram(string2) == true )
+puts( is_isogram(string3) == false )
+puts( is_isogram(string4) == false )
+puts( is_isogram(string5) == false )
+puts( is_isogram(string6) == true )
