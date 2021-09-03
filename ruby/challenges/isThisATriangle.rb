@@ -5,3 +5,10 @@
 
     (In this case, all triangles must have surface greater than 0 to be accepted).
 =end
+
+# METHOD 1 => Status Quo
+def is_triangle a, b, c
+    a + b > c &&
+    a + c > b &&
+    b + c > a ? ( return true ) : ( return false )
+end
