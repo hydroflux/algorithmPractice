@@ -21,7 +21,7 @@ def number_people bus_stops
 end
 
 # METHOD 2 => map + reduce
-def number_people_2
+def number_people_2 bus_stops
     bus_stops.map { |(on, off)| on - off }.reduce(:+)
 end
 
@@ -33,3 +33,6 @@ array_3 = [[3, 0], [9, 1], [4, 8], [12, 2], [6, 1], [7, 8]]
 puts number_people(array_1) == 5
 puts number_people(array_2) == 17
 puts number_people(array_3) == 21
+puts number_people_2(array_1) == 5
+puts number_people_2(array_2) == 17
+puts number_people_2(array_3) == 21
