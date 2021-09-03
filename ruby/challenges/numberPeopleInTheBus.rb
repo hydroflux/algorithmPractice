@@ -14,3 +14,8 @@
 
     The second value in the first integer array is 0, since the bus is empty in the first bus stop.
 =end
+
+# METHOD 1 => Status Quo
+def number bus_stops
+    bus_stops.reduce(0){ | sum, exchange | sum + exchange[0] - exchange[1] } 
+end
