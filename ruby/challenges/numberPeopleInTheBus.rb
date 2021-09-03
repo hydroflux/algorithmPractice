@@ -19,3 +19,12 @@
 def number bus_stops
     bus_stops.reduce(0){ | sum, exchange | sum + exchange[0] - exchange[1] } 
 end
+
+# TESTING
+array_1 = [[10, 0], [3, 5], [5, 8]]
+array_2 = [[3, 0], [9, 1], [4, 10], [12, 2], [6, 1], [7, 10]]
+array_3 = [[3, 0], [9, 1], [4, 8], [12, 2], [6, 1], [7, 8]]
+
+puts number(array_1) == 5
+puts number(array_2) == 17
+puts number(array_3) == 21
