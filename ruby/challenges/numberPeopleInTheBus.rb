@@ -16,8 +16,13 @@
 =end
 
 # METHOD 1 => Status Quo
-def number bus_stops
+def number_people bus_stops
     bus_stops.reduce(0){ | sum, exchange | sum + exchange[0] - exchange[1] } 
+end
+
+# METHOD 2 => map + reduce
+def number_people_2
+    bus_stops.map { |(on, off)| on - off }.reduce(:+)
 end
 
 # TESTING
@@ -25,6 +30,6 @@ array_1 = [[10, 0], [3, 5], [5, 8]]
 array_2 = [[3, 0], [9, 1], [4, 10], [12, 2], [6, 1], [7, 10]]
 array_3 = [[3, 0], [9, 1], [4, 8], [12, 2], [6, 1], [7, 8]]
 
-puts number(array_1) == 5
-puts number(array_2) == 17
-puts number(array_3) == 21
+puts number_people(array_1) == 5
+puts number_people(array_2) == 17
+puts number_people(array_3) == 21
