@@ -12,3 +12,14 @@ def is_triangle a, b, c
     a + c > b &&
     b + c > a ? ( return true ) : ( return false )
 end
+
+# TESTING
+a = 1
+b = 2
+c = 2
+a_2 = 7
+b_2 = 2
+c_2 = 2
+
+puts is_triangle( a, b, c ) == true
+puts is_triangle( a_2, b_2, c_2 ) == false
