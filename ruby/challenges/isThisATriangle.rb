@@ -13,6 +13,12 @@ def is_triangle a, b, c
     b + c > a ? ( return true ) : ( return false )
 end
 
+# METHOD 2 => Using sort to identify the biggest value first (the only thing that matters for the inequality theorem)
+def is_triangle_2 a, b, c
+    a, b, c = [ a, b, c ].sort
+    a + b > c
+end
+
 # TESTING
 a = 1
 b = 2
@@ -23,3 +29,5 @@ c_2 = 2
 
 puts is_triangle( a, b, c ) == true
 puts is_triangle( a_2, b_2, c_2 ) == false
+puts is_triangle_2( a, b, c ) == true
+puts is_triangle_2( a_2, b_2, c_2 ) == false
