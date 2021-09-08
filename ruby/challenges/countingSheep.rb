@@ -12,3 +12,8 @@
     Hint: Don't forget to check for bad values like null/undefined
 =end
 
+# METHOD 1 => Status Quo
+def countSheeps array
+    array.select { | value | value == true }
+         .reduce(0) { | acc, value | acc + 1 }
+end
