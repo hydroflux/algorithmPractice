@@ -18,13 +18,26 @@ def countSheeps array
          .reduce(0) { | acc, value | acc + 1 }
 end
 
+# METHOD 2 => Using 'count' Enumerator
+def countSheeps_2 array
+    array.count( true )
+end
+
 # Testing
 array_1 = [ true,  true,  true,  false, true,  true,  true,  true, true,  false, true,  false,
             true,  false, false, true, true,  true,  true,  true, false, false, true,  true ]
 array_2 = [ true, true, true, true, true, true, true, true, true ]
 array_3 = [ false, false, false, false, false, false, false, false, false ]
+solution_1 = 17
+solution_2 = 9
+solution_3 = 0
 
 # Method 1
-p countSheeps( array_1 ) == 17
-p countSheeps( array_2 ) == 9
-p countSheeps( array_3 ) == 0
+p countSheeps( array_1 ) == solution_1
+p countSheeps( array_2 ) == solution_2
+p countSheeps( array_3 ) == solution_3
+
+# Method 2
+p countSheeps_2( array_1 ) == solution_1
+p countSheeps_2( array_2 ) == solution_2
+p countSheeps_2( array_3 ) == solution_3
