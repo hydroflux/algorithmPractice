@@ -14,11 +14,25 @@ def disemvowel string
     string.split('').filter { | char | !['a', 'A', 'e', 'E', 'i', 'I', 'o',  'O', 'u', 'U'].include? char }.join
 end
 
+# METHOD 2 => Using Ruby's 'delete' Method
+def disemvowel_2 string
+    string.delete('aeiouAEIOU')
+end
+
 # TESTING
 string_1 = 'The quick brown fox jumped over the lazy dog'
 string_2 = 'Hello operator, I would like to place a call'
 string_3 = 'Bananaphone'
+solution_1 = 'Th qck brwn fx jmpd vr th lzy dg'
+solution_2 = 'Hll prtr,  wld lk t plc  cll'
+solution_3 = 'Bnnphn'
 
-p disemvowel(string_1) == 'Th qck brwn fx jmpd vr th lzy dg'
-p disemvowel(string_2) == 'Hll prtr,  wld lk t plc  cll'
-p disemvowel(string_3) == 'Bnnphn'
+# Method 1
+p disemvowel(string_1) == solution_1
+p disemvowel(string_2) == solution_2
+p disemvowel(string_3) == solution_3
+
+# Method 2
+p disemvowel_2(string_1) == solution_1
+p disemvowel_2(string_2) == solution_2
+p disemvowel_2(string_3) == solution_3
