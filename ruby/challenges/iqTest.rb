@@ -17,12 +17,26 @@
 # Method 1 => Status Quo
 def iq_test(numbers)
     number_array = numbers.split(' ')
-    puts number_array
     
     evens = number_array.filter { | number | number.to_i.even? }
     odds = number_array.filter { | number | number.to_i.odd? }
 
     evens.length > odds.length ?
-      number_array.find_index( odds[0] ) + 1
-      : number_array.find_index( evens[0] ) + 1
+      number_array.find_index( odds[0] ) + 1 :
+			number_array.find_index( evens[0] ) + 1
 end
+
+# Testing
+string_1 = '2 4 7 8 10'
+string_2 = '1 2 2'
+string_3 = '15 31 11 41 51 49 47 25 9 11 27 37 27 11 5 41 27 45 39 15 35 21 9 41 45 35 27 5 1 45 35 35 33 47 52 5 51 27 21 1'
+string_4 = '19 27 51 11 49 49 9 15 5 21 9 35 41 5 28 7 41 19 21'
+solution_1 = 3
+solution_2 = 1
+solution_3 = 35
+solution_4 = 15
+
+p iq_test(string_1) == solution_1
+p iq_test(string_2) == solution_2
+p iq_test(string_3) == solution_3
+p iq_test(string_4) == solution_4
