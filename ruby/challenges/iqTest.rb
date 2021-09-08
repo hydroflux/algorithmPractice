@@ -14,3 +14,15 @@
     iq_test("1 2 1 1") => 2 # Second number is even, while the rest of the numbers are odd
 =end
 
+# Method 1 => Status Quo
+def iq_test(numbers)
+    number_array = numbers.split(' ')
+    puts number_array
+    
+    evens = number_array.filter { | number | number.to_i.even? }
+    odds = number_array.filter { | number | number.to_i.odd? }
+
+    evens.length > odds.length ?
+      number_array.find_index( odds[0] ) + 1
+      : number_array.find_index( evens[0] ) + 1
+end
