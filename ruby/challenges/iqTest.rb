@@ -15,15 +15,23 @@
 =end
 
 # Method 1 => Status Quo
-def iq_test(numbers)
-    number_array = numbers.split(' ')
-    
-    evens = number_array.filter { | number | number.to_i.even? }
-    odds = number_array.filter { | number | number.to_i.odd? }
+def iq_test numbers
+	number_array = numbers.split(' ')
+	
+	evens = number_array.filter { | number | number.to_i.even? }
+	odds = number_array.filter { | number | number.to_i.odd? }
 
-    evens.length > odds.length ?
-      number_array.find_index( odds[0] ) + 1 :
-			number_array.find_index( evens[0] ) + 1
+	evens.length > odds.length ?
+		number_array.find_index( odds[0] ) + 1 :
+		number_array.find_index( evens[0] ) + 1
+end
+
+# Method 2 => Mappingan array of 'true' even / odd & then solving based on a count ( since solution will be 1 )
+def iq_test_2 numbers
+	number_array = numbers.split(' ').map(&:to_i).map(&:even?)
+	number_array.count( true ) > 1 ?
+		number_array.index( false ) + 1 :
+		number_array.index( true ) + 1
 end
 
 # Testing
@@ -36,7 +44,14 @@ solution_2 = 1
 solution_3 = 35
 solution_4 = 15
 
+# Method 1 Tests
 p iq_test(string_1) == solution_1
 p iq_test(string_2) == solution_2
 p iq_test(string_3) == solution_3
 p iq_test(string_4) == solution_4
+
+# Method 2 Tests
+p iq_test_2(string_1) == solution_1
+p iq_test_2(string_2) == solution_2
+p iq_test_2(string_3) == solution_3
+p iq_test_2(string_4) == solution_4
