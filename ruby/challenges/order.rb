@@ -24,6 +24,16 @@ def order words
        .join(' ')
 end
 
+# Method 2 => Using 'sort_by' & 'chars.min'
+def order_2 words
+  words.split
+       .sort_by { | word | word.chars.min }
+       .join(' ')
+end
+
+# Sort_by is organizing the array based on some value, which is defined
+# as the minimum value of each order--#'s must be smaller than letters
+
 # Testing
 string_1 = 'is2 Thi1s T4est 3a'
 string_2 = '4of Fo1r pe6ople g3ood th5e the2'
@@ -37,8 +47,16 @@ solution_3 = ''
 solution_4 = 'old1 p2erson y3oung lo4ng their5 abo6ut she7 ba8d 9be'
 solution_5 = 'important1 woul2d g3overnment o4ld smal5l r6ight 7about p8art'
 
+# Method 1 Testing
 p order(string_1) == solution_1
 p order(string_2) == solution_2
 p order(string_3) == solution_3
 p order(string_4) == solution_4
 p order(string_5) == solution_5
+
+# Method 2 Testing
+p order_2(string_1) == solution_1
+p order_2(string_2) == solution_2
+p order_2(string_3) == solution_3
+p order_2(string_4) == solution_4
+p order_2(string_5) == solution_5
