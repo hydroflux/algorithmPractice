@@ -32,7 +32,15 @@ def order_2 words
 end
 
 # Sort_by is organizing the array based on some value, which is defined
-# as the minimum value of each order--#'s must be smaller than letters
+# as the minimum value of each order--#'s must be smaller than letters;
+# Split works on a space unless told otherwise
+
+# Method 3 => Method 2 + Regex
+def order_3(words)
+  words.split
+       .sort_by{ |word| word[/\d/] }
+       .join(' ')
+end
 
 # Testing
 string_1 = 'is2 Thi1s T4est 3a'
@@ -60,3 +68,10 @@ p order_2(string_2) == solution_2
 p order_2(string_3) == solution_3
 p order_2(string_4) == solution_4
 p order_2(string_5) == solution_5
+
+# Method 3 Testing
+p order_3(string_1) == solution_1
+p order_3(string_2) == solution_2
+p order_3(string_3) == solution_3
+p order_3(string_4) == solution_4
+p order_3(string_5) == solution_5
