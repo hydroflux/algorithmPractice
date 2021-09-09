@@ -12,3 +12,14 @@
   "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
   ""  -->  ""
 =end
+
+# Method 1 => Status Quo
+def order words
+  words.split(' ')
+       .each_with_object({}) { | string, hash | 
+          hash[string.split('').find { | char | char.to_i != 0 }] = string 
+        }
+       .sort
+       .map { | value | value[1] }
+       .join(' ')
+end
