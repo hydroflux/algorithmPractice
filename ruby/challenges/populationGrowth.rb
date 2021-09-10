@@ -35,14 +35,28 @@
 # Method 1 => Status Quo
 def nb_year p0, percent, augment, p1
   count = 0
+  percent *= 0.01
 
   while p0 < p1
-    p0 = (p0 + ( p0 * ( percent * 0.01 ) ).floor + augment)
+    p0 = (p0 + ( p0 * percent ).floor + augment)
     count += 1
   end
 
-  return count
+  count
 end
+
+# Method 2 => Ternary Return with Recursion
+def nb_year_2 p0, percent, augment, p1, years=0
+  p0 >= p1 ?
+    years :
+    nb_year_2( p0 + ( percent / 100.0 * p0 ).to_i + augment,
+               percent,
+               augment,
+               p1,
+               years + 1)
+end
+
+# Cool idea to add a new argument (Method 2), didn't consider that as an option
 
 # Testing
 p0_1 = 1500000
@@ -70,7 +84,14 @@ solution_2 = 4
 solution_3 = 2
 solution_4 = 18
 
+# Method 1 Testing
 p nb_year( p0_1, percent_1, augment_1, p1_1 ) == solution_1
 p nb_year( p0_2, percent_2, augment_2, p1_2 ) == solution_2
 p nb_year( p0_3, percent_3, augment_3, p1_3 ) == solution_3
 p nb_year( p0_4, percent_4, augment_4, p1_4 ) == solution_4
+
+# Method 2 Testing
+p nb_year_2( p0_1, percent_1, augment_1, p1_1 ) == solution_1
+p nb_year_2( p0_2, percent_2, augment_2, p1_2 ) == solution_2
+p nb_year_2( p0_3, percent_3, augment_3, p1_3 ) == solution_3
+p nb_year_2( p0_4, percent_4, augment_4, p1_4 ) == solution_4
