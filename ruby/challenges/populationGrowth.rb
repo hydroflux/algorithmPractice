@@ -36,10 +36,41 @@
 def nb_year p0, percent, augment, p1
   count = 0
 
-  while p0 < p1 {
+  while p0 < p1
     p0 = (p0 + ( p0 * ( percent * 0.01 ) ).floor + augment)
     count += 1
-  }
+  end
 
   return count
 end
+
+# Testing
+p0_1 = 1500000
+percent_1 = 0.0
+augment_1 = 10000
+p1_1 = 2000000
+
+p0_2 = 1000
+percent_2 = 2.0
+augment_2 = 50
+p1_2 = 1214
+
+p0_3 = 9395761
+percent_3 = 9.54
+augment_3 = 46978
+p1_3 = 11227903
+
+p0_4 = 12719548
+percent_4 = 1.62
+augment_4 = 63597
+p1_4 = 18252487
+
+solution_1 = 50
+solution_2 = 4
+solution_3 = 2
+solution_4 = 18
+
+p nb_year( p0_1, percent_1, augment_1, p1_1 ) == solution_1
+p nb_year( p0_2, percent_2, augment_2, p1_2 ) == solution_2
+p nb_year( p0_3, percent_3, augment_3, p1_3 ) == solution_3
+p nb_year( p0_4, percent_4, augment_4, p1_4 ) == solution_4
