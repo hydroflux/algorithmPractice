@@ -31,3 +31,15 @@
   Don't forget to convert the percent parameter as a percentage in the body of your function:
   if the parameter percent is 2 you have to convert it to 0.02.
 =end
+
+# Method 1 => Status Quo
+def nb_year p0, percent, augment, p1
+  count = 0
+
+  while p0 < p1 {
+    p0 = (p0 + ( p0 * ( percent * 0.01 ) ).floor + augment)
+    count += 1
+  }
+
+  return count
+end
