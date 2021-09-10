@@ -33,16 +33,15 @@
 =end
 
 # Method 1 => Status Quo
-def nb_year p0, percent, augment, p1
-  count = 0
+def nb_year p0, percent, augment, p1, years=0
   percent *= 0.01
 
   while p0 < p1
-    p0 = (p0 + ( p0 * percent ).floor + augment)
-    count += 1
+    p0 = p0 + ( p0 * percent ).floor + augment
+    years += 1
   end
 
-  count
+  years
 end
 
 # Method 2 => Ternary Return with Recursion
