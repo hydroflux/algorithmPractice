@@ -19,18 +19,20 @@ def abbrev_name name
       .join('.')
 end
 
+# Testing
 name_1 = 'Sam Harris'
-abbrev_1 = "S.H"
+name_2 = 'Patrick Freeman'
+name_3 = 'Evan Cole'
+name_4 = 'P Favuzzi'
+name_5 = 'David Mendieta'
+abbrev_1 = 'S.H'
+abbrev_2 = 'P.F'
+abbrev_3 = 'E.C'
+abbrev_4 = 'P.F'
+abbrev_5 = 'D.M'
 
-describe "Fixed tests" do
-  it "should pass fixed tests" do
-    Test.assert_equals(abbrev_name("Sam Harris"), "S.H")
-    Test.assert_equals(abbrev_name("Patrick Feenan"), "P.F")
-    Test.assert_equals(abbrev_name("Evan Cole"), "E.C")
-    Test.assert_equals(abbrev_name("P Favuzzi"), "P.F")
-    Test.assert_equals(abbrev_name("David Mendieta"), "D.M")
-  end
-
-
-
-p abbrev_name(name_1)
+p abbrev_name(name_1) == abbrev_1
+p abbrev_name(name_2) == abbrev_2
+p abbrev_name(name_3) == abbrev_3
+p abbrev_name(name_4) == abbrev_4
+p abbrev_name(name_5) == abbrev_5
