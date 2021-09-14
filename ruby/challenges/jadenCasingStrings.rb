@@ -21,6 +21,15 @@ class String
         .map{ | word | "#{word[0].upcase}#{word[1..word.length]}"}
         .join(' ')
   end
+
+  # Method 2 => Simpler solution, using the 'capitalize' method
+  def toJadenCase_2
+    self.split
+        .map(&:capitalize)
+        .join(' ')
+  end
+
+  # Fine with this, I was looking for a 'title' string method for Method 1
 end
 
 # Testing
@@ -34,7 +43,14 @@ solution_2 = "I Watch Twilight Every Night"
 solution_3 = "Most Trees Are Blue"
 solution_4 = "All The Rules In This World Were Made By Someone No Smarter Than You. So Make Your Own."
 
+# Method 1 Testing
 p string_1.toJadenCase() == solution_1
 p string_2.toJadenCase() == solution_2
 p string_3.toJadenCase() == solution_3
 p string_4.toJadenCase() == solution_4
+
+# Method 2 Testing
+p string_1.toJadenCase_2() == solution_1
+p string_2.toJadenCase_2() == solution_2
+p string_3.toJadenCase_2() == solution_3
+p string_4.toJadenCase_2() == solution_4
