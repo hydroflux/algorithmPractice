@@ -22,3 +22,19 @@ class String
         .join(' ')
   end
 end
+
+# Testing
+string_1 = "How can mirrors be real if our eyes aren't real"
+string_2 = "I watch Twilight every night"
+string_3 = "Most trees are blue"
+string_4 = "All the rules in this world were made by someone no smarter than you. So make your own."
+
+solution_1 = "How Can Mirrors Be Real If Our Eyes Aren't Real"
+solution_2 = "I Watch Twilight Every Night"
+solution_3 = "Most Trees Are Blue"
+solution_4 = "All The Rules In This World Were Made By Someone No Smarter Than You. So Make Your Own."
+
+p string_1.toJadenCase() == solution_1
+p string_2.toJadenCase() == solution_2
+p string_3.toJadenCase() == solution_3
+p string_4.toJadenCase() == solution_4
