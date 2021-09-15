@@ -29,3 +29,22 @@
 
   "  *\n ***\n*****\n ***\n  *\n"
 =end
+
+# Method 1 => Status Quo
+def diamond number, count=-1
+  (1..number).reduce('') do | string, element |
+    count += 1
+    if number.even?
+      return string
+    else
+      space = ' ' * count
+      stars = '*' * count
+    end
+    string += "#{space}#{stars}\n"
+  end
+end
+
+# *\n  ***\n 
+
+puts diamond 3
+# number.reduce('') { }
