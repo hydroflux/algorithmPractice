@@ -19,6 +19,11 @@ end
 # Method 2 => Single Line
 def add_binary_2(a, b)  (a + b).to_s(2) end
 
+# Method 3 => Binary Formatting Syntax
+def add_binary_3 a, b
+  return "%b" % (a + b)
+end
+
 # Testing
 # Method 1
 p add_binary(1,1) == "10"
@@ -33,3 +38,10 @@ p add_binary_2(0,1) == "1"
 p add_binary_2(1,0) == "1"
 p add_binary_2(2,2) == "100"
 p add_binary_2(51,12) == "111111"
+
+# Method 3
+p add_binary_3(1,1) == "10"
+p add_binary_3(0,1) == "1"
+p add_binary_3(1,0) == "1"
+p add_binary_3(2,2) == "100"
+p add_binary_3(51,12) == "111111"
