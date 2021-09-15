@@ -12,6 +12,13 @@ def find_short string
         .length
 end
 
+# Method 2 => Mapping Using 'size' & Returning 'min'
+def find_short_2 string
+  string.split
+        .map(&:size)
+        .min
+end
+
 # Testing
 string_1 = "bitcoin take over the world maybe who knows perhaps"
 string_2 = "turns out random test cases are easier than writing out basic ones"
@@ -27,9 +34,18 @@ solution_4 = 1
 solution_5 = 2
 solution_6 = 2
 
+# Method 1 Testing
 p find_short(string_1) == solution_1
 p find_short(string_2) == solution_2
 p find_short(string_3) == solution_3
 p find_short(string_4) == solution_4
 p find_short(string_5) == solution_5
 p find_short(string_6) == solution_6
+
+# Method 2 Testing
+p find_short_2(string_1) == solution_1
+p find_short_2(string_2) == solution_2
+p find_short_2(string_3) == solution_3
+p find_short_2(string_4) == solution_4
+p find_short_2(string_5) == solution_5
+p find_short_2(string_6) == solution_6
