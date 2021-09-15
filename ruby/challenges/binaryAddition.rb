@@ -15,3 +15,10 @@
 def add_binary a, b
   (a + b).to_s(2)
 end
+
+# Testing
+p add_binary(1,1) == "10"
+p add_binary(0,1) == "1"
+p add_binary(1,0) == "1"
+p add_binary(2,2) == "100"
+p add_binary(51,12) == "111111"
