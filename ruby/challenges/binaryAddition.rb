@@ -16,9 +16,20 @@ def add_binary a, b
   (a + b).to_s(2)
 end
 
+# Method 2 => Single Line
+def add_binary_2(a, b)  (a + b).to_s(2) end
+
 # Testing
+# Method 1
 p add_binary(1,1) == "10"
 p add_binary(0,1) == "1"
 p add_binary(1,0) == "1"
 p add_binary(2,2) == "100"
 p add_binary(51,12) == "111111"
+
+# Method 2
+p add_binary_2(1,1) == "10"
+p add_binary_2(0,1) == "1"
+p add_binary_2(1,0) == "1"
+p add_binary_2(2,2) == "100"
+p add_binary_2(51,12) == "111111"
