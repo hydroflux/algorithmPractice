@@ -22,3 +22,15 @@
   title_case('THE WIND IN THE WILLOWS', 'The In') # should return: 'The Wind in the Willows'
   title_case('the quick brown fox') # should return: 'The Quick Brown Fox'
 =end
+
+# Method 1 => Status Quo
+def title_case title, minor_words
+  title.split.each_with_index.map do | word, index | 
+    if ( !minor_words.downcase.split.include? word.downcase ) || index == 0
+      "#{word[0].upcase}#{word[1 , word.length ].downcase }"
+    else
+      word.downcase
+    end
+  end
+    .join(' ')
+end
