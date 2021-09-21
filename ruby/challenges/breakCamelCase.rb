@@ -22,6 +22,9 @@ end
 
 # 'gsub' is using regex to check for a capital letter & adding a leading space where it is found
 
+# Method 3 => Method 2 (Single Line)
+def breakCamelCase_3(string) string.gsub /([A-Z])/, ' \1' end
+
 # Test Cases
 string_1 = "camelCasing"
 string_2 = "identifier"
@@ -44,3 +47,9 @@ p breakCamelCase_2(string_1) == solution_1
 p breakCamelCase_2(string_2) == solution_2
 p breakCamelCase_2(string_3) == solution_3
 p breakCamelCase_2(string_4) == solution_4
+
+# Method 3 Testing
+p breakCamelCase_3(string_1) == solution_1
+p breakCamelCase_3(string_2) == solution_2
+p breakCamelCase_3(string_3) == solution_3
+p breakCamelCase_3(string_4) == solution_4
