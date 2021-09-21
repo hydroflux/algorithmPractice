@@ -34,3 +34,24 @@ def title_case title, minor_words
   end
     .join(' ')
 end
+
+# Testing
+title_1 = 'a clash of KINGS'
+title_2 = 'THE WIND IN THE WILLOWS'
+title_3 = 'the quick brown fox'
+title_4 = 'First a of in'
+
+minor_words_1 = 'a an the of'
+minor_words_2 = 'The In'
+minor_words_3 = ''
+minor_words_4 = 'an often into'
+
+solution_1 = 'A Clash of Kings'
+solution_2 = 'The Wind in the Willows'
+solution_3 = 'The Quick Brown Fox'
+solution_4 = 'First A Of In'
+
+p title_case(title_1, minor_words_1) == solution_1
+p title_case(title_2, minor_words_2) == solution_2
+p title_case(title_3, minor_words_3) == solution_3
+p title_case(title_4, minor_words_4) == solution_4
