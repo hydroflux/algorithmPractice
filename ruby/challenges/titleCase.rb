@@ -26,7 +26,7 @@
 # Method 1 => Status Quo
 def title_case title, minor_words
   title.split.each_with_index.map do | word, index | 
-    if ( !minor_words.downcase.split.include? word.downcase ) || index == 0
+    if !minor_words.downcase.split.include?(word.downcase) || index == 0
       "#{word[0].upcase}#{word[1 , word.length ].downcase }"
     else
       word.downcase
@@ -38,11 +38,22 @@ end
 # Method 1 => Status Quo w/ Braces & Ternary
 def title_case_2 title, minor_words
   title.split.each_with_index.map { | word, index | 
-    ( !minor_words.downcase.split.include? word.downcase ) || index == 0 ?
+    !minor_words.downcase.split.include?(word.downcase) || index == 0 ?
       "#{word[0].upcase}#{word[1 , word.length ].downcase }" :
       word.downcase
     }.join(' ')
 end
+
+# Method 3 => Using Capitalize
+def title_case_3 title, minor_words
+  title.capitalize
+       .split
+       .map{ | word | minor_words.downcase.split.include?(word) ? word : word.capitalize }
+       .join(' ')
+end
+
+# Need to remember that "capitalize" does what "title_case / titleize does"
+# Using capitalize removes the need for the or bars in Method 1 & 2
 
 # Test Cases
 title_1 = 'a clash of KINGS'
@@ -71,3 +82,9 @@ p title_case_2(title_1, minor_words_1) == solution_1
 p title_case_2(title_2, minor_words_2) == solution_2
 p title_case_2(title_3, minor_words_3) == solution_3
 p title_case_2(title_4, minor_words_4) == solution_4
+
+# Method 3
+p title_case_3(title_1, minor_words_1) == solution_1
+p title_case_3(title_2, minor_words_2) == solution_2
+p title_case_3(title_3, minor_words_3) == solution_3
+p title_case_3(title_4, minor_words_4) == solution_4
