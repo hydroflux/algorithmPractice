@@ -35,7 +35,16 @@ def title_case title, minor_words
     .join(' ')
 end
 
-# Testing
+# Method 1 => Status Quo w/ Braces & Ternary
+def title_case_2 title, minor_words
+  title.split.each_with_index.map { | word, index | 
+    ( !minor_words.downcase.split.include? word.downcase ) || index == 0 ?
+      "#{word[0].upcase}#{word[1 , word.length ].downcase }" :
+      word.downcase
+    }.join(' ')
+end
+
+# Test Cases
 title_1 = 'a clash of KINGS'
 title_2 = 'THE WIND IN THE WILLOWS'
 title_3 = 'the quick brown fox'
@@ -51,7 +60,14 @@ solution_2 = 'The Wind in the Willows'
 solution_3 = 'The Quick Brown Fox'
 solution_4 = 'First A Of In'
 
+# Method 1 Testing
 p title_case(title_1, minor_words_1) == solution_1
 p title_case(title_2, minor_words_2) == solution_2
 p title_case(title_3, minor_words_3) == solution_3
 p title_case(title_4, minor_words_4) == solution_4
+
+# Method 2 Testing
+p title_case_2(title_1, minor_words_1) == solution_1
+p title_case_2(title_2, minor_words_2) == solution_2
+p title_case_2(title_3, minor_words_3) == solution_3
+p title_case_2(title_4, minor_words_4) == solution_4
