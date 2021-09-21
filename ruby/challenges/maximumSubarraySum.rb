@@ -19,6 +19,24 @@ def max_sequence array, maximum_subarray=0, current_max=0
   maximum_subarray
 end
 
+# Method 2 => Using 'any?', 'positive?', 'each_cons', and 'max' Methods
+def max_sequence_2 array
+  return 0 unless array.length > 0 && array.any?(&:positive?)
+  (1..(array.length))
+  .to_a  # converts the range back to an array
+  .map {
+    | index | array.each_cons( index )
+                  .map { | consecutive_array | consecutive_array.sum }  # sums each consecutive array
+                  .max  # maximizes the consectutive arrays to a single array of maximized numbers
+   }
+  .max  # maximizes the consecutive arrays max
+end
+
+# 'any?' searches for any match
+# '&:positive?' is matching for any positive numbers in the array
+# 'to_a' creates an array
+# 'each_cons' iterates the given block for each array of consecutive <n> elements--if no block is given ,returns an enumerator
+
 # Test Cases
 array_1 = []
 array_2 = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
@@ -37,9 +55,14 @@ solution_2 = 6
 solution_3 = 89
 solution_4 = 112
 
-
 # Method 1 Testing
 p max_sequence(array_1) == solution_1
 p max_sequence(array_2) == solution_2
 p max_sequence(array_3) == solution_3
 p max_sequence(array_4) == solution_4
+
+# Method 2 Testing
+p max_sequence_2(array_1) == solution_1
+p max_sequence_2(array_2) == solution_2
+p max_sequence_2(array_3) == solution_3
+p max_sequence_2(array_4) == solution_4
