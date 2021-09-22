@@ -47,7 +47,42 @@
     The Clojure version returns nil when the path is reduced to nothing.
     The Rust version takes a slice of enum Direction {North, East, West, South}.
     See more examples in "Sample Tests:"
+
     Notes
-    Not all paths can be made simpler. The path ["NORTH", "WEST", "SOUTH", "EAST"] is not reducible. "NORTH" and "WEST", "WEST" and "SOUTH", "SOUTH" and "EAST" are not directly opposite of each other and can't become such. Hence the result path is itself : ["NORTH", "WEST", "SOUTH", "EAST"].
+    Not all paths can be made simpler. The path ["NORTH", "WEST", "SOUTH", "EAST"] is not reducible.
+    "NORTH" and "WEST", "WEST" and "SOUTH", "SOUTH" and "EAST" are not directly opposite of each other and can't become such.
+    Hence the result path is itself : ["NORTH", "WEST", "SOUTH", "EAST"].
     if you want to translate, please ask before translating.
 =end
+
+# Method 1 => Status Quo
+def directionsReduction directions_array
+    directions_array.reduce([]){ | aggregator, direction |
+        if direction == "NORTH" && aggregator[aggregator.length - 1] == "SOUTH"
+            aggregator.pop()
+        elsif direction == "SOUTH" && aggregator[aggregator.length - 1] == "NORTH"
+            aggregator.pop()
+        elsif direction == "EAST" && aggregator[aggregator.length - 1] == "WEST"
+            aggregator.pop()
+        elsif direction == "WEST" && aggregator[aggregator.length - 1] == "EAST"
+            aggregator.pop()
+        else
+            aggregator.push(direction)
+        end
+        aggregator
+    }
+end
+
+# Test Cases
+array_1 = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]
+array_2 = ["NORTH", "WEST", "SOUTH", "EAST"]
+array_3 = ["WEST", "NORTH", "WEST", "WEST", "SOUTH", "SOUTH", "WEST", "WEST", "WEST", "WEST"]
+
+solution_1 = ["WEST"]
+solution_2 = ["NORTH", "WEST", "SOUTH", "EAST"]
+solution_3 = ["WEST", "NORTH", "WEST", "WEST", "SOUTH", "SOUTH", "WEST", "WEST", "WEST", "WEST"]
+
+# Method 1 Testing
+p directionsReduction(array_1) == solution_1
+p directionsReduction(array_2) == solution_2
+p directionsReduction(array_3) == solution_3
