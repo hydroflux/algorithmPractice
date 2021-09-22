@@ -25,8 +25,7 @@
 
 # Method 1 => Status Quo
 def sum_dig_pow a, b, output=[]
-    range = a..b
-    for number in range
+    for number in a..b
         output.push(number) unless 
         number.to_s
               .split('')
@@ -43,10 +42,12 @@ a_1 = 1
 a_2 = 10
 a_3 = 90
 a_4 = 50
+a_5 = 119
 
 b_1 = 10
 b_2 = 100
 b_3 = 150
+b_4 = 2221
 
 solution_1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 solution_2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 89]
@@ -55,6 +56,7 @@ solution_4 = []
 solution_5 = [135]
 solution_6 = [89, 135]
 solution_7 = [89, 135]
+solution_8 = [135, 175, 518, 598, 1306, 1676]
 
 # Method 1 Testing
 p sum_dig_pow(a_1, b_1) == solution_1
@@ -64,3 +66,4 @@ p sum_dig_pow(a_3, b_2) == solution_4
 p sum_dig_pow(a_3, b_3) == solution_5
 p sum_dig_pow(a_4, b_3) == solution_6
 p sum_dig_pow(a_2, b_3) == solution_7
+p sum_dig_pow(a_5, b_4) == solution_8
