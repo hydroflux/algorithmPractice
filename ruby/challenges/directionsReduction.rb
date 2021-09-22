@@ -73,6 +73,23 @@ def directionsReduction directions_array
     }
 end
 
+
+# Method 2 => Creating an "Opposites" Object to Work with
+def directionsReduction_2 directions_array
+    opposite = {
+        "NORTH" => "SOUTH",
+        "SOUTH" => "NORTH",
+        "EAST" => "WEST",
+        "WEST" => "EAST"
+    }
+
+    directions_array.reduce([]){ | route, direction | 
+        opposite[direction] == route[route.length - 1] ?
+        route.pop() : route.push(direction)
+        route
+    }
+end
+
 # Test Cases
 array_1 = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]
 array_2 = ["NORTH", "WEST", "SOUTH", "EAST"]
@@ -86,3 +103,8 @@ solution_3 = ["WEST", "NORTH", "WEST", "WEST", "SOUTH", "SOUTH", "WEST", "WEST",
 p directionsReduction(array_1) == solution_1
 p directionsReduction(array_2) == solution_2
 p directionsReduction(array_3) == solution_3
+
+# Method 2 Testing
+p directionsReduction_2(array_1) == solution_1
+p directionsReduction_2(array_2) == solution_2
+p directionsReduction_2(array_3) == solution_3
