@@ -31,6 +31,13 @@ end
 
 # ".step" iterats over teh range, passing each nth element to the block
 
+
+# Method 3 => Using a Nested Map
+def multiplication_table_3 size
+    (1..size).map { | i | (1..size).map { | j | i * j } }
+end
+
+
 # Test Cases
 solution_1 = [[1, 2], [2, 4]]
 solution_2 = [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
@@ -48,3 +55,9 @@ p multiplication_table_2(2) == solution_1
 p multiplication_table_2(3) == solution_2
 p multiplication_table_2(4) == solution_3
 p multiplication_table_2(5) == solution_4
+
+# Method 3 Testing
+p multiplication_table_3(2) == solution_1
+p multiplication_table_3(3) == solution_2
+p multiplication_table_3(4) == solution_3
+p multiplication_table_3(5) == solution_4
