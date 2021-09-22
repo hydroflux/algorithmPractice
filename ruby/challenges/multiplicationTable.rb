@@ -21,6 +21,17 @@ def multiplication_table size, row=1, table_array=[]
     table_array.each_slice(size).to_a
 end
 
+# Method 2 => Mapping Over the Range & Creating Stepped Range Values
+def multiplication_table_2 size
+    (1..size).map { 
+        | value | ( value..size * value ).step( value )
+                                         .to_a
+    }
+end
+
+# ".step" iterats over teh range, passing each nth element to the block
+
+# Test Cases
 solution_1 = [[1, 2], [2, 4]]
 solution_2 = [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
 solution_3 = [[1, 2, 3, 4], [2, 4, 6, 8], [3, 6, 9, 12], [4, 8, 12, 16]]
@@ -31,3 +42,9 @@ p multiplication_table(2) == solution_1
 p multiplication_table(3) == solution_2
 p multiplication_table(4) == solution_3
 p multiplication_table(5) == solution_4
+
+# Method 2 Testing
+p multiplication_table_2(2) == solution_1
+p multiplication_table_2(3) == solution_2
+p multiplication_table_2(4) == solution_3
+p multiplication_table_2(5) == solution_4
