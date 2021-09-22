@@ -21,10 +21,13 @@ def multiplication_table size, row=1, table_array=[]
     table_array.each_slice(size).to_a
 end
 
-# Test Cases
-size_1 = 3
+solution_1 = [[1, 2], [2, 4]]
+solution_2 = [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
+solution_3 = [[1, 2, 3, 4], [2, 4, 6, 8], [3, 6, 9, 12], [4, 8, 12, 16]]
+solution_4 = [[1, 2, 3, 4, 5], [2, 4, 6, 8, 10], [3, 6, 9, 12, 15], [4, 8, 12, 16, 20], [5, 10, 15, 20, 25]]
 
 # Method 1 Testing
-solution_1 = [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
-
-p multiplication_table(size_1) == solution_1
+p multiplication_table(2) == solution_1
+p multiplication_table(3) == solution_2
+p multiplication_table(4) == solution_3
+p multiplication_table(5) == solution_4
