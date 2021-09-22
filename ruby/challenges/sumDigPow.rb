@@ -22,3 +22,27 @@
 
     sum_dig_pow(90, 100) == []
 =end
+
+# Method 1 => Status Quo
+def sum_dig_pow a, b, output=[]
+    range = a..b
+    for number in range
+        output.push(number) unless 
+        number.to_s
+              .split('')
+              .each_with_index
+              .reduce(0){ 
+                    | sum, ( number, index )| sum += number.to_i ** ( index + 1 )
+                } != number
+    end
+    output
+end
+
+# Test Cases
+a_1 = 1
+b_1 = 10
+
+solution_1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Method 1 Testing
+p sum_dig_pow(a_1, b_1) == solution_1
