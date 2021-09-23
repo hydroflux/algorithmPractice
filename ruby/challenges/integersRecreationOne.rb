@@ -59,6 +59,16 @@ def list_squared_3 m, n
 end
 
 
+# Method 4 => Optimizing...
+def list_squared_4 m, n
+  (m..n).reduce([]){ | array, i |
+    reduced = (1..i).reduce(0){ | sum, j |  i % j == 0 ? sum += j*j : sum }
+
+    ( Math.sqrt( reduced ) % 1 ).zero? ?
+    array.push( [ i, reduced ] ) : array }
+end
+
+
 # Test Cases
 m_1 = 1
 m_2 = 42
@@ -70,6 +80,8 @@ n_2 = 500
 solution_1 = [[1, 1], [42, 2500], [246, 84100]]
 solution_2 = [[42, 2500], [246, 84100]]
 solution_3 = [[287, 84100]]
+
+p list_squared_4(42, 43)
 
 # Method 1 Testing
 p list_squared(m_1, n_1) == solution_1
@@ -85,3 +97,8 @@ p list_squared_2(m_3, n_2) == solution_3
 p list_squared_3(m_1, n_1) == solution_1
 p list_squared_3(m_2, n_1) == solution_2
 p list_squared_3(m_3, n_2) == solution_3
+
+# Method 4 Testing
+p list_squared_4(m_1, n_1) == solution_1
+p list_squared_4(m_2, n_1) == solution_2
+p list_squared_4(m_3, n_2) == solution_3
