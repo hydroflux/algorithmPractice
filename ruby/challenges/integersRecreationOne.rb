@@ -16,9 +16,29 @@
   Example:
   list_squared(1, 250) --> [[1, 1], [42, 2500], [246, 84100]]
   list_squared(42, 250) --> [[42, 2500], [246, 84100]]
-  
+
   The form of the examples may change according to the language, see "Sample Tests".
 
   Note
   In Fortran - as in any other language - the returned string is not permitted to contain any redundant trailing whitespace: you can use dynamically allocated character strings.
 =end
+
+# Method 1 => Status Quo
+def list_squared m, n
+  (m..n).map { | i | [ i, (1..i)
+        .reduce([]) { | array, j |  i % j == 0 ? array.push( j ) : array }
+        .reduce(0)  { | sum, k | sum +=  k*k } ] }
+        .reduce([]) { | squared_array, l | Math.sqrt(l[1]) == Math.sqrt(l[1]).to_i ?
+          squared_array.push( l ) :
+          squared_array
+        }
+end
+
+# Test Cases
+m_1 = 42
+n_1 = 43
+
+solution_1 = [[1, 1], [42, 2500], [246, 84100]]
+
+# Method 1 Testing
+p list_squared(m_1, n_1)
