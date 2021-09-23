@@ -35,10 +35,18 @@ def list_squared m, n
 end
 
 # Test Cases
-m_1 = 42
-n_1 = 43
+m_1 = 1
+m_2 = 42
+m_3 = 250
+
+n_1 = 250
+n_2 = 500
 
 solution_1 = [[1, 1], [42, 2500], [246, 84100]]
+solution_2 = [[42, 2500], [246, 84100]]
+solution_3 = [[287, 84100]]
 
 # Method 1 Testing
-p list_squared(m_1, n_1)
+p list_squared(m_1, n_1) == solution_1
+p list_squared(m_2, n_1) == solution_2
+p list_squared(m_3, n_2) == solution_3
