@@ -69,6 +69,16 @@ def list_squared_4 m, n
 end
 
 
+# Method 5 => Method 3 Optimized
+def list_squared_5 m, n
+  (m..n).map { | i | [ i , (1..i/2.to_i)
+        .reduce(i*i) { | sum, j |  i % j == 0 ? sum += j*j : sum } ]}
+        .filter { | l | ( Math.sqrt(l[1]) % 1 ).zero? }
+end
+
+# By reducing the numbers checked to half of the list, the speed of the solution doubled--there are no divisors other than "i" above i/2
+# Then making the reduce value start at i squared removed the need to go all the way up to the "i" as a divisor
+
 # Test Cases
 m_1 = 1
 m_2 = 42
@@ -81,7 +91,7 @@ solution_1 = [[1, 1], [42, 2500], [246, 84100]]
 solution_2 = [[42, 2500], [246, 84100]]
 solution_3 = [[287, 84100]]
 
-p list_squared_4(42, 43)
+p list_squared_5(42, 43)
 
 # Method 1 Testing
 p list_squared(m_1, n_1) == solution_1
@@ -102,3 +112,8 @@ p list_squared_3(m_3, n_2) == solution_3
 p list_squared_4(m_1, n_1) == solution_1
 p list_squared_4(m_2, n_1) == solution_2
 p list_squared_4(m_3, n_2) == solution_3
+
+# Method 5 Testing
+p list_squared_5(m_1, n_1) == solution_1
+p list_squared_5(m_2, n_1) == solution_2
+p list_squared_5(m_3, n_2) == solution_3
