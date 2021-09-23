@@ -26,9 +26,9 @@
 # Method 1 => Status Quo
 def list_squared m, n
   (m..n).map { | i | [ i , (1..i)
-        .reduce([]) { | array, j |  i % j == 0 ? array.push( j ) : array } 
-        .reduce(0)  { | sum, k | sum +=  k*k } ] }
-        .filter { | l | ( Math.sqrt(l[1]) % 1 ).zero? }
+        .reduce([]) { | array, j |  i % j == 0 ? array.push( j ) : array } ]}
+        .filter      { | k | ( Math.sqrt( k[1].reduce(0) { | sum, l | sum +=  l*l }) % 1 ).zero? }
+        .map        { | x | [x[0], x[1].reduce(0) { | sum, y | sum +=  y*y }] }
 end
 
 # Test Cases
