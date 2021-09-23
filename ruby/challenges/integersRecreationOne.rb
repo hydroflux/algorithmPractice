@@ -25,13 +25,16 @@
 
 # Method 1 => Status Quo
 def list_squared m, n
-  (m..n).map { | i | [ i, (1..i)
-        .reduce([]) { | array, j |  i % j == 0 ? array.push( j ) : array }
+  (m..n).map { | i | [ i , (1..i)
+        .reduce([]) { | array, j |  i % j == 0 ? array.push( j ) : array } 
         .reduce(0)  { | sum, k | sum +=  k*k } ] }
-        .reduce([]) { | squared_array, l | Math.sqrt(l[1]) == Math.sqrt(l[1]).to_i ?
-          squared_array.push( l ) :
-          squared_array
-        }
+        .reduce([]) { | squared_array, l | ( Math.sqrt(l) % 1 ).zero? ?
+          squared_array.push( l ) : squared_array }
+        # .map { | l |  }
+        # .reduce([]) { | squared_array, l | Math.sqrt(l[1]) == Math.sqrt(l[1]).to_i ?
+        #   squared_array.push( l ) :
+        #   squared_array
+        # }
 end
 
 # Test Cases
@@ -46,7 +49,9 @@ solution_1 = [[1, 1], [42, 2500], [246, 84100]]
 solution_2 = [[42, 2500], [246, 84100]]
 solution_3 = [[287, 84100]]
 
+p list_squared(m_2, m_2)
+
 # Method 1 Testing
-p list_squared(m_1, n_1) == solution_1
-p list_squared(m_2, n_1) == solution_2
-p list_squared(m_3, n_2) == solution_3
+# p list_squared(m_1, n_1) == solution_1
+# p list_squared(m_2, n_1) == solution_2
+# p list_squared(m_3, n_2) == solution_3
