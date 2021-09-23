@@ -51,6 +51,13 @@ def list_squared_2 m, n, squared_array=[]
   squared_array
 end
 
+# Method 3 => Status Quo Refined?
+def list_squared_3 m, n
+  (m..n).map { | i | [ i , (1..i)
+        .reduce(0) { | sum, j |  i % j == 0 ? sum += j*j : sum } ]}
+        .filter { | l | ( Math.sqrt(l[1]) % 1 ).zero? }
+end
+
 
 # Test Cases
 m_1 = 1
@@ -73,3 +80,8 @@ p list_squared(m_3, n_2) == solution_3
 p list_squared_2(m_1, n_1) == solution_1
 p list_squared_2(m_2, n_1) == solution_2
 p list_squared_2(m_3, n_2) == solution_3
+
+# Method 3 Testing
+p list_squared_3(m_1, n_1) == solution_1
+p list_squared_3(m_2, n_1) == solution_2
+p list_squared_3(m_3, n_2) == solution_3
