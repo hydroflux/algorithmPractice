@@ -26,10 +26,31 @@
 # Method 1 => Status Quo
 def list_squared m, n
   (m..n).map { | i | [ i , (1..i)
-        .reduce([]) { | array, j |  i % j == 0 ? array.push( j ) : array } ]}
-        .filter      { | k | ( Math.sqrt( k[1].reduce(0) { | sum, l | sum +=  l*l }) % 1 ).zero? }
-        .map        { | x | [x[0], x[1].reduce(0) { | sum, y | sum +=  y*y }] }
+        .reduce([]) { | array, j |  i % j == 0 ? array.push( j ) : array } 
+        .reduce(0)  { | sum, k | sum +=  k*k } ] }
+        .filter { | l | ( Math.sqrt(l[1]) % 1 ).zero? }
 end
+
+
+# Method 1 => Using For Loops & If Statements to Try & Optimize
+def list_squared_2 m, n, squared_array=[]
+  for i in (m..n)
+    divisors = []
+    for j in (1..i)
+      if i % j == 0
+        divisors.push( j )
+      end
+    end
+
+    reduced_divisors = divisors.reduce(0) { | sum, k | sum += k*k }
+    if ( Math.sqrt( reduced_divisors ) % 1 ).zero?
+      squared_array.push([ i, reduced_divisors ])
+    end
+  end
+
+  squared_array
+end
+
 
 # Test Cases
 m_1 = 1
@@ -43,9 +64,12 @@ solution_1 = [[1, 1], [42, 2500], [246, 84100]]
 solution_2 = [[42, 2500], [246, 84100]]
 solution_3 = [[287, 84100]]
 
-p list_squared(m_2, m_2)
-
 # Method 1 Testing
-# p list_squared(m_1, n_1) == solution_1
-# p list_squared(m_2, n_1) == solution_2
-# p list_squared(m_3, n_2) == solution_3
+p list_squared(m_1, n_1) == solution_1
+p list_squared(m_2, n_1) == solution_2
+p list_squared(m_3, n_2) == solution_3
+
+# Method 2 Testing
+p list_squared_2(m_1, n_1) == solution_1
+p list_squared_2(m_2, n_1) == solution_2
+p list_squared_2(m_3, n_2) == solution_3
