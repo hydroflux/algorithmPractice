@@ -28,13 +28,7 @@ def list_squared m, n
   (m..n).map { | i | [ i , (1..i)
         .reduce([]) { | array, j |  i % j == 0 ? array.push( j ) : array } 
         .reduce(0)  { | sum, k | sum +=  k*k } ] }
-        .reduce([]) { | squared_array, l | ( Math.sqrt(l) % 1 ).zero? ?
-          squared_array.push( l ) : squared_array }
-        # .map { | l |  }
-        # .reduce([]) { | squared_array, l | Math.sqrt(l[1]) == Math.sqrt(l[1]).to_i ?
-        #   squared_array.push( l ) :
-        #   squared_array
-        # }
+        .filter { | l | ( Math.sqrt(l[1]) % 1 ).zero? }
 end
 
 # Test Cases
