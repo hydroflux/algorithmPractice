@@ -79,6 +79,24 @@ end
 # By reducing the numbers checked to half of the list, the speed of the solution doubled--there are no divisors other than "i" above i/2
 # Then making the reduce value start at i squared removed the need to go all the way up to the "i" as a divisor
 
+# Method 6 => Using 'upto'
+# def list_squared_6 m, n
+#   result = []
+#   m.upto(n) do |num|
+#     devisors = Set.new
+#     1.upto(Math.sqrt(num)) do |d| 
+#       devisors << d**2 << (num / d)**2 if num % d == 0
+#     end
+#     sum = devisors.inject(0, :+)
+#     result << [num, sum] if Math.sqrt(sum) % 1== 0
+#   end
+#   return result
+# end
+
+# 'upto' iterates the given block, passing in integer values from int up to and including 'limit'
+
+# Other code wars solutions are using imported packages, which seems like a pretty bullshit solution considering the premise of the exercise
+
 # Test Cases
 m_1 = 1
 m_2 = 42
@@ -117,3 +135,8 @@ p list_squared_4(m_3, n_2) == solution_3
 p list_squared_5(m_1, n_1) == solution_1
 p list_squared_5(m_2, n_1) == solution_2
 p list_squared_5(m_3, n_2) == solution_3
+
+# Method 6 Testing
+# p list_squared_6(m_1, n_1) == solution_1
+# p list_squared_6(m_2, n_1) == solution_2
+# p list_squared_6(m_3, n_2) == solution_3
