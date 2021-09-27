@@ -21,6 +21,10 @@ def x_o(s):
     return s.lower().count('x') == s.lower().count('o')
 
 
+# Method 3 => Using 'is' instead of '=='
+def Xo(s):
+    return s.lower().count('x') is s.lower().count('o')
+
 # Test Cases
 string_1 = 'ooxx'
 string_2 = 'xxxxxoooxooo'
@@ -38,3 +42,9 @@ print(x_o(string_1) == True)
 print(x_o(string_2) == True)
 print(x_o(string_3) == True)
 print(x_o(string_4) == False)
+
+# Method 3 Testing
+print(Xo(string_1) == True)
+print(Xo(string_2) == True)
+print(Xo(string_3) == True)
+print(Xo(string_4) == False)
