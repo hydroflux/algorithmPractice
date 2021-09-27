@@ -10,3 +10,16 @@
     XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
     XO("zzoo") => false
 '''
+
+# Method 1 => Status Quo
+def xo(s):
+    return True if s.lower().count('x') == s.lower.count('o') else False
+
+
+# Test Cases
+string_1 = 'ooxx'
+
+solution_1 = True
+
+# Method 1 Testing
+print(xo(string_1) == solution_1)
