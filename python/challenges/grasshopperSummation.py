@@ -18,6 +18,11 @@ def summation(num, sum=0):
     return sum
 
 
+# Method 2 => Using the 'sum' method
+def summation_2(num):
+    return sum(range(num + 1))
+
+
 # Test Cases
 num_1 = 8
 num_2 = 22
@@ -34,3 +39,9 @@ print(summation(num_1) == solution_1)
 print(summation(num_2) == solution_2)
 print(summation(num_3) == solution_3)
 print(summation(num_4) == solution_4)
+
+# Method 2 Testing
+print(summation_2(num_1) == solution_1)
+print(summation_2(num_2) == solution_2)
+print(summation_2(num_3) == solution_3)
+print(summation_2(num_4) == solution_4)
