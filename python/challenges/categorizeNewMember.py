@@ -31,8 +31,17 @@ def open_or_senior(data):
 
 # Test Cases
 data_1 = [[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]]
+data_2 = [(89, 15), (42, 24), (79, 17), (30, 15), (89, 22), (83, 24), (13, 18), (35, 5)]
+data_3 = [(61, 9), (18, 19), (68, 7), (29, 4), (24, 23), (48, 2), (31, 15), (56, -2)]
+data_4 = [(25, 18), (21, 18), (33, 16), (60, 0), (35, 0), (87, 24), (78, 26)]
 
 solution_1 = ['Open', 'Open', 'Senior', 'Open', 'Open', 'Senior']
+solution_2 = ['Senior', 'Open', 'Senior', 'Open', 'Senior', 'Senior', 'Open', 'Open']
+solution_3 = ['Senior', 'Open', 'Open', 'Open', 'Open', 'Open', 'Open', 'Open']
+solution_4 = ['Open', 'Open', 'Open', 'Open', 'Open', 'Senior', 'Senior']
 
 # Method 1 Testing
 print(open_or_senior(data_1) == solution_1)
+print(open_or_senior(data_2) == solution_2)
+print(open_or_senior(data_3) == solution_3)
+print(open_or_senior(data_4) == solution_4)
