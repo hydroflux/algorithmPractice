@@ -20,9 +20,17 @@ def summation(num, sum=0):
 
 # Test Cases
 num_1 = 8
+num_2 = 22
+num_3 = 100
+num_4 = 213
 
 solution_1 = 36
-
+solution_2 = 253
+solution_3 = 5050
+solution_4 = 22791
 
 # Method 1 Testing
-print(summation(num_1))
+print(summation(num_1) == solution_1)
+print(summation(num_2) == solution_2)
+print(summation(num_3) == solution_3)
+print(summation(num_4) == solution_4)
