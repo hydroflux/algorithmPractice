@@ -21,3 +21,18 @@
     Note: all the hashes are pre-validated and will only contain A-Z, a-z, '-' and '.'.
 
 '''
+
+# Method 1 => Status Quo
+def namelist(names):
+    name_array = [name['name'] for name in names]
+    return f"{(', ').join(name_array[:-1])} & {name_array[-1]}" if len(name_array) > 1 else ('').join(name_array)
+
+
+# Test Cases
+dict_1 = [ {'name': 'Bart'}, {'name': 'Lisa'}, {'name': 'Maggie'} ]
+
+solution_1 = 'Bart, Lisa & Maggie'
+
+
+# Method 1 Testing
+print(namelist(dict_1) == solution_1)
