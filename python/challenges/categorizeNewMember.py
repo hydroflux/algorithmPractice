@@ -29,6 +29,11 @@ def open_or_senior(data):
     return membership
 
 
+# Method 2 => Single Line Return with a Tuple to Break Up The Data
+def openOrSenior(data):
+    return ["Senior" if age >= 55 and handicap >= 8 else "Open" for (age, handicap) in data]
+
+
 # Test Cases
 data_1 = [[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]]
 data_2 = [(89, 15), (42, 24), (79, 17), (30, 15), (89, 22), (83, 24), (13, 18), (35, 5)]
@@ -45,3 +50,9 @@ print(open_or_senior(data_1) == solution_1)
 print(open_or_senior(data_2) == solution_2)
 print(open_or_senior(data_3) == solution_3)
 print(open_or_senior(data_4) == solution_4)
+
+# Method 2 Testing
+print(openOrSenior(data_1) == solution_1)
+print(openOrSenior(data_2) == solution_2)
+print(openOrSenior(data_3) == solution_3)
+print(openOrSenior(data_4) == solution_4)
