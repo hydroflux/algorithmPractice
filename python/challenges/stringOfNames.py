@@ -30,9 +30,17 @@ def namelist(names):
 
 # Test Cases
 dict_1 = [ {'name': 'Bart'}, {'name': 'Lisa'}, {'name': 'Maggie'} ]
+dict_2 = [{'name': 'Bart'},{'name': 'Lisa'},{'name': 'Maggie'},{'name': 'Homer'},{'name': 'Marge'}]
+dict_3 = [{'name': 'Bart'}]
+dict_4 = []
 
 solution_1 = 'Bart, Lisa & Maggie'
-
+solution_2 = 'Bart, Lisa, Maggie, Homer & Marge'
+solution_3 = 'Bart'
+solution_4 = ''
 
 # Method 1 Testing
 print(namelist(dict_1) == solution_1)
+print(namelist(dict_2) == solution_2)
+print(namelist(dict_3) == solution_3)
+print(namelist(dict_4) == solution_4)
