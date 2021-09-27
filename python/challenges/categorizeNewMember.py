@@ -17,3 +17,22 @@
     Example Output
     ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 '''
+
+# Method 1 => Status Quo
+def open_or_senior(data):
+    membership = []
+    for member in data:
+        if member[0] >= 55 and member[1] > 7:
+            membership.append("Senior")
+        else:
+            membership.append("Open")
+    return membership
+
+
+# Test Cases
+data_1 = [[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]]
+
+solution_1 = ['Open', 'Open', 'Senior', 'Open', 'Open', 'Senior']
+
+# Method 1 Testing
+print(open_or_senior(data_1) == solution_1)
