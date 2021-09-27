@@ -19,6 +19,9 @@ def unique_in_order(iterable):
     return list
 
 
+# Method 2 => Using Lambda Function
+unique_in_order_2 = lambda l: [z for i, z in enumerate(l) if i == 0 or l[i - 1] != z]
+
 
 # Test Cases
 iterable_1 = 'AAAABBBCCDAABBB'
@@ -36,3 +39,9 @@ print(unique_in_order(iterable_1) == solution_1)
 print(unique_in_order(iterable_2) == solution_2)
 print(unique_in_order(iterable_3) == solution_3)
 print(unique_in_order(iterable_4) == solution_4)
+
+# Method 2 Testing
+print(unique_in_order_2(iterable_1) == solution_1)
+print(unique_in_order_2(iterable_2) == solution_2)
+print(unique_in_order_2(iterable_3) == solution_3)
+print(unique_in_order_2(iterable_4) == solution_4)
