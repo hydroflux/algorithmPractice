@@ -10,3 +10,19 @@
     summation(8) -> 36
     1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
 '''
+
+# Method 1 => Status Quo
+def summation(num, sum=0):
+    for int in range(num + 1):
+        sum += int
+    return sum
+
+
+# Test Cases
+num_1 = 8
+
+solution_1 = 36
+
+
+# Method 1 Testing
+print(summation(num_1))
