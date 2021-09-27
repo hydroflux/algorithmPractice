@@ -13,13 +13,17 @@
 
 # Method 1 => Status Quo
 def xo(s):
-    return True if s.lower().count('x') == s.lower.count('o') else False
+    return True if s.lower().count('x') == s.lower().count('o') else False
 
 
 # Test Cases
 string_1 = 'ooxx'
-
-solution_1 = True
+string_2 = 'xxxxxoooxooo'
+string_3 = 'zpzpzpp'
+string_4 = 'xELCxxbkJpxxhxxAxmxxxfoGooooxrxxxdoQoNox'
 
 # Method 1 Testing
-print(xo(string_1) == solution_1)
+print(xo(string_1) == True)
+print(xo(string_2) == True)
+print(xo(string_3) == True)
+print(xo(string_4) == False)
