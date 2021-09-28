@@ -20,6 +20,12 @@ def rot13(message, cypher=''):
     return cypher
 
 
+# Method 2 => One Line
+def rot_13(message):
+    return ('').join([ letter if not letter.isalpha() else ((chr(ord(letter) + 13) if ord(letter) + 13 < 123 else chr(ord(letter) - 13)) if letter.lower() == letter else (chr(ord(letter.lower()) + 13) if ord(letter.lower()) + 13 < 123 else chr(ord(letter.lower()) - 13)).upper()) for letter in message ])
+
+
+
 # Test Cases
 message_1 = 'test'
 message_2 = '7zz0UPBsU3QXkYyS'
@@ -37,3 +43,9 @@ print(rot13(message_1) == solution_1)
 print(rot13(message_2) == solution_2)
 print(rot13(message_3) == solution_3)
 print(rot13(message_4) == solution_4)
+
+# Method 2 Testing
+print(rot_13(message_1) == solution_1)
+print(rot_13(message_2) == solution_2)
+print(rot_13(message_3) == solution_3)
+print(rot_13(message_4) == solution_4)
