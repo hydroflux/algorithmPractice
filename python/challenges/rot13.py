@@ -22,9 +22,18 @@ def rot13(message, cypher=''):
 
 # Test Cases
 message_1 = 'test'
+message_2 = '7zz0UPBsU3QXkYyS'
+message_3 = '5XxbmGbGzX9TPGRl'
+message_4 = 'aZyMK2eqQ5mJMIrM'
 
 solution_1 = 'grfg'
+solution_2 = '7mm0HCOfH3DKxLlF'
+solution_3 = '5KkozToTmK9GCTEy'
+solution_4 = 'nMlZX2rdD5zWZVeZ'
 
 
 # Method 1 Testing
 print(rot13(message_1) == solution_1)
+print(rot13(message_2) == solution_2)
+print(rot13(message_3) == solution_3)
+print(rot13(message_4) == solution_4)
