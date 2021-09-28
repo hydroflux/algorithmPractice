@@ -12,3 +12,20 @@
 
     findNb(91716553919377) --> -1
 '''
+
+# Method 1 => Status Quo
+def find_nb(m, n=0, volume=0):
+    while volume != m:
+        n += 1
+        volume += n ** 3
+        if volume > m:
+            return -1
+    return n
+
+
+# Test Cases
+volume_1 = 1071225
+
+
+# Method 1 Testing
+print(find_nb(volume_1))
