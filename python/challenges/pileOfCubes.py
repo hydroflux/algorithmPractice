@@ -25,7 +25,18 @@ def find_nb(m, n=0, volume=0):
 
 # Test Cases
 volume_1 = 1071225
+volume_2 = 24723578342962
+volume_3 = 40539911473216
+volume_4 = 26825883955641
+
+solution_1 = 45
+solution_2 = -1
+solution_3 = 3568
+solution_4 = 3218
 
 
 # Method 1 Testing
-print(find_nb(volume_1))
+print(find_nb(volume_1) == solution_1)
+print(find_nb(volume_2) == solution_2)
+print(find_nb(volume_3) == solution_3)
+print(find_nb(volume_4) == solution_4)
