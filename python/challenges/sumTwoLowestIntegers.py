@@ -7,3 +7,15 @@
 
     [10, 343445353, 3453445, 3453545353453] should return 3453455.
 '''
+
+# Method 1 => Status Quo
+def sum_two_smallest_numbers(numbers):
+    return sum(sorted(numbers)[:2])
+
+
+# Test Cases
+array_1 = [10, 343445353, 3453445, 3453545353453]
+solution_1 = 3453455
+
+# Method 1 Testing
+print(sum_two_smallest_numbers(array_1) == solution_1)
