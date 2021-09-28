@@ -7,3 +7,24 @@
 
     Please note that using encode is considered cheating.
 '''
+
+# Method 1 => Status Quo
+def rot13(message, cypher=''):
+    for letter in message:
+        if not letter.isalpha():
+            cypher += letter
+        elif letter.lower() == letter:
+            cypher += chr(ord(letter) + 13) if ord(letter) + 13 < 123 else chr(ord(letter) - 13)
+        else:
+            cypher += (chr(ord(letter.lower()) + 13) if ord(letter.lower()) + 13 < 123 else chr(ord(letter.lower()) - 13)).upper()
+    return cypher
+
+
+# Test Cases
+message_1 = 'test'
+
+solution_1 = 'grfg'
+
+
+# Method 1 Testing
+print(rot13(message_1) == solution_1)
