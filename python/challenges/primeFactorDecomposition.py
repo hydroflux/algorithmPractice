@@ -36,11 +36,25 @@ def prime_factors(n, i=2):
 # Test Cases
 n1 = 100
 n2 = 7775460
+n3 = 7919
+n4 = 162
+n5 = 35791357
+n6 = 782611830
+n7 = 925186
 
 solution_1 = '(1)(2**2)(5**2)'
 solution_2 = '(2**2)(3**3)(5)(7)(11**2)(17)'
+solution_3 = '(7919)'
+solution_4 = '(1)(2)(3**4)'
+solution_5 = '(7)(5113051)'
+solution_6 = '(2)(3**2)(5)(7**2)(11)(13)(17)(73)'
+solution_7 = '(2)(19)(97)(251)'
 
 # Method 1 Testing
 print(prime_factors(n1) == solution_1)
 print(prime_factors(n2) == solution_2)
-
+print(prime_factors(n3) == solution_3)
+print(prime_factors(n4) == solution_4)
+print(prime_factors(n5) == solution_5)
+print(prime_factors(n6) == solution_6)
+print(prime_factors(n7) == solution_7)
