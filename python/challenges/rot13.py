@@ -20,7 +20,7 @@ def rot13(message, cypher=''):
     return cypher
 
 
-# Method 2 => One Line
+# Method 2 => Method One reduced to One Line
 def rot_13(message):
     return ('').join([ letter if not letter.isalpha() else ((chr(ord(letter) + 13) if ord(letter) + 13 < 123 else chr(ord(letter) - 13)) if letter.lower() == letter else (chr(ord(letter.lower()) + 13) if ord(letter.lower()) + 13 < 123 else chr(ord(letter.lower()) - 13)).upper()) for letter in message ])
 
