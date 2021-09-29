@@ -10,26 +10,37 @@
 '''
 
 # Method 1 => Status Quo
-def prime_factors(n, i=2, prime_factors=[]):
+def prime_factors(n, i=2):
+    prime_factors=[]
     while i * i <= n:
-        print(i)
-        print(n % i)
-        if n % i is 0:
-            prime_factors.append([i, int(n/i)])
-            n //= i
-            n //= n/i
-            print(n)
-            print(i)
-            print(prime_factors)
+        if n % i == 0:
+            j = 1
+            while n % i**j == 0:
+                prime_factor = [i, j]
+                j += 1
+            if prime_factor == [i, 1]:
+                prime_factors.append((i, f'({str(i)})'))
+            else:
+                prime_factors.append((i, f'({str(i)}**{str(j-1)})'))
+
+            n //= int(prime_factor[0] ** prime_factor[1])
         i += 1
-            
+    
+    if n > 0:
+        prime_factors.append((n, f'({n})'))
+
+    prime_factors.sort()
+    return ('').join(factor[1] for factor in prime_factors)
 
 
 # Test Cases
-n1 = 10
+n1 = 100
 n2 = 7775460
 
+solution_1 = '(1)(2**2)(5**2)'
+solution_2 = '(2**2)(3**3)(5)(7)(11**2)(17)'
 
 # Method 1 Testing
-print(prime_factors(n1))
+print(prime_factors(n1) == solution_1)
+print(prime_factors(n2) == solution_2)
 
