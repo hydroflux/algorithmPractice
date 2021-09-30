@@ -27,13 +27,15 @@
 '''
 
 # Method 1 => Status Quo
-def longest_consec(array, k):
-    pass
+def longest_consec(array, k, longest=[]):
+    return max([f'{string}{array[array.index(string) + 1]}' for string in array[:-1]], key=len)
 
 
 # Test Cases
 array_1 = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"]
 k1 = 2
 
+solution_1 = 'folingtrashy'
+
 # Method 1 Testing
-print(longest_consec(array_1, k1))
+print(longest_consec(array_1, k1) == solution_1)
