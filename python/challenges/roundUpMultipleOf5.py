@@ -22,7 +22,9 @@
 
 # Method 1 => Status Quo
 def round_to_next5(n):
-    pass
+    if n != 0:
+        while n % 5 != 0: n += 1
+    return n
 
 
 # Test Cases
@@ -30,5 +32,5 @@ n1 = 0
 n2 = 2
 
 # Method 1 Testing
-print(round_to_next5(n1))
-print(round_to_next5(n2))
+print(round_to_next5(n1) == 0)
+print(round_to_next5(n2) == 5)
