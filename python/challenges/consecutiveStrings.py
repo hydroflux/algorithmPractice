@@ -44,6 +44,18 @@ def longest_consec(array, k):
 def longestConsec(s, k):
     return max(["".join(s[i:i+k]) for i in range(len(s)-k+1)], key=len) if s and 0 < k <= len(s) else ""
 
+
+# Method 3 => Using Range -- More Efficient
+def longestconsec(array, k):
+    result = ""
+    if k > 0 and len(array) >= k:
+        for index in range(len(array) - k + 1):
+            s = ''.join(array[index:index+k])
+            if len(s) > len(result):
+                result = s            
+    return result
+
+
 # Test Cases
 array_1 = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"]
 array_2 = ["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"]
@@ -76,3 +88,10 @@ print(longestConsec(array_2, k2) == solution_2)
 print(longestConsec(array_3, k3) == solution_3)
 print(longestConsec(array_4, k4) == solution_4)
 print(longestConsec(array_5, k5) == solution_5)
+
+# Method 3 Testing
+print(longestconsec(array_1, k1) == solution_1)
+print(longestconsec(array_2, k2) == solution_2)
+print(longestconsec(array_3, k3) == solution_3)
+print(longestconsec(array_4, k4) == solution_4)
+print(longestconsec(array_5, k5) == solution_5)
