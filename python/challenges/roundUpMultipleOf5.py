@@ -27,11 +27,16 @@ def round_to_next5(n):
     return n
 
 
-# Method 1 => Reduced Method 1
+# Method 2 => Reduced Method 1
 def roundToNext5(n):
     while n % 5 != 0: n += 1
     return n
 
+# Method 3 => Trickery
+def roundToNext_5(n):
+    return n + (5 - n) % 5
+
+# Adds 5 to n and return the remainder
 
 # Test Cases
 n1 = 0
@@ -63,3 +68,11 @@ print(roundToNext5(n3) == solution_3)
 print(roundToNext5(n4) == solution_4)
 print(roundToNext5(n5) == solution_5)
 print(roundToNext5(n6) == solution_6)
+
+# Method 3 Testing
+print(roundToNext_5(n1) == solution_1)
+print(roundToNext_5(n2) == solution_2)
+print(roundToNext_5(n3) == solution_3)
+print(roundToNext_5(n4) == solution_4)
+print(roundToNext_5(n5) == solution_5)
+print(roundToNext_5(n6) == solution_6)
