@@ -30,7 +30,15 @@ def round_to_next5(n):
 # Test Cases
 n1 = 0
 n2 = 2
+n3 = 3
+n4 = 14
+n5 = 96
+n6 = 129341
 
 # Method 1 Testing
 print(round_to_next5(n1) == 0)
 print(round_to_next5(n2) == 5)
+print(round_to_next5(n3) == 5)
+print(round_to_next5(n4) == 15)
+print(round_to_next5(n5) == 100)
+print(round_to_next5(n6) == 129345)
