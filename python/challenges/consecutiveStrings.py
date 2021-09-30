@@ -27,15 +27,41 @@
 '''
 
 # Method 1 => Status Quo
-def longest_consec(array, k, longest=[]):
-    return max([f'{string}{array[array.index(string) + 1]}' for string in array[:-1]], key=len)
+def longest_consec(array, k):
+    if k < 1 or array == [] or k > len(array): return ''
+    longest=[]
+    if k > 1:
+        for string in array[:-(k - 1)]:
+            consecutive, j = string, 1
+            while k > j: consecutive += array[array.index(string) + j]; j += 1
+            longest.append(consecutive)
+    else:
+        return max(array, key=len)
+    return max(longest, key=len)
 
 
 # Test Cases
 array_1 = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"]
+array_2 = ["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"]
+array_3 = ["zone", "abigail", "theta", "form", "libe", "zas"]
+array_4 = ['it', 'wkppv', 'ixoyx', '3452', 'zzzzzzzzzzzz']
+array_5 = ['it', 'wkppv', 'ixoyx', '3452', 'zzzzzzzzzzzz']
+
 k1 = 2
+k2 = 2
+k3 = -2
+k4 = 3
+k5 = 15
 
 solution_1 = 'folingtrashy'
+solution_2 = 'wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck'
+solution_3 = ''
+solution_4 = 'ixoyx3452zzzzzzzzzzzz'
+solution_5 = ''
 
 # Method 1 Testing
 print(longest_consec(array_1, k1) == solution_1)
+print(longest_consec(array_2, k2) == solution_2)
+print(longest_consec(array_3, k3) == solution_3)
+print(longest_consec(array_4, k4) == solution_4)
+print(longest_consec(array_5, k5) == solution_5)
