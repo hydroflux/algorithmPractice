@@ -40,6 +40,10 @@ def longest_consec(array, k):
     return max(longest, key=len)
 
 
+# Method 2 => Single Line Using Range
+def longestConsec(s, k):
+    return max(["".join(s[i:i+k]) for i in range(len(s)-k+1)], key=len) if s and 0 < k <= len(s) else ""
+
 # Test Cases
 array_1 = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"]
 array_2 = ["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"]
@@ -65,3 +69,10 @@ print(longest_consec(array_2, k2) == solution_2)
 print(longest_consec(array_3, k3) == solution_3)
 print(longest_consec(array_4, k4) == solution_4)
 print(longest_consec(array_5, k5) == solution_5)
+
+# Method 2 Testing
+print(longestConsec(array_1, k1) == solution_1)
+print(longestConsec(array_2, k2) == solution_2)
+print(longestConsec(array_3, k3) == solution_3)
+print(longestConsec(array_4, k4) == solution_4)
+print(longestConsec(array_5, k5) == solution_5)
