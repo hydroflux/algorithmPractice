@@ -25,3 +25,15 @@
     Note
     consecutive strings : follow one after another without an interruption
 '''
+
+# Method 1 => Status Quo
+def longest_consec(array, k):
+    pass
+
+
+# Test Cases
+array_1 = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"]
+k1 = 2
+
+# Method 1 Testing
+print(longest_consec(array_1, k1))
