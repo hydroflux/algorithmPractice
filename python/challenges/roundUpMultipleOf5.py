@@ -1,6 +1,6 @@
 '''
     CHALLENGE => Round Up to the Next Multiple of 5
-    
+
     Given an integer as input, can you round it to the next (meaning, "higher") multiple of 5?
 
     Examples:
@@ -19,3 +19,16 @@
 
     You can assume that all inputs are valid integers.
 '''
+
+# Method 1 => Status Quo
+def round_to_next5(n):
+    pass
+
+
+# Test Cases
+n1 = 0
+n2 = 2
+
+# Method 1 Testing
+print(round_to_next5(n1))
+print(round_to_next5(n2))
