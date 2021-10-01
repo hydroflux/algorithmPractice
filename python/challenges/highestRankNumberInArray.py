@@ -23,8 +23,13 @@ def highest_rank(array):
     return max([number for number, value in rank_dict.items() if value == max_count])
 
 
-# max(set(array), key=array.count)
+# Method 2 => Using Sorted
+def highestRank(array):
+    return sorted(array, key=lambda x: (array.count(x), x))[-1]
 
+
+# The lambda function is sorting by 'count' and then alphabetically
+# The comma lets you add an argument for the x key in the lambda function
 
 # Test Cases
 array_1 = [12, 10, 8, 12, 7, 6, 4, 10, 12]
@@ -39,3 +44,8 @@ solution_3 =  3
 print(highest_rank(array_1) == solution_1)
 print(highest_rank(array_2) == solution_2)
 print(highest_rank(array_3) == solution_3)
+
+# Method 2 Testing
+print(highestRank(array_1) == solution_1)
+print(highestRank(array_2) == solution_2)
+print(highestRank(array_3) == solution_3)
