@@ -1,0 +1,14 @@
+AmbiguousRegexpLiteral:
+  Enabled: false
+
+SingleLineMethods:
+  Enabled: false
+
+MethodName:
+  Enabled: false
+
+MethodDefParentheses:
+  Enabled: false
+
+SpaceAroundBlockParameters:
+  Enabled: false
