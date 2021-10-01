@@ -13,8 +13,17 @@
 
 # Method 1 => Status Quo
 def highest_rank(array):
-    x = max(set(array), key=array.count)
-    return x
+    rank_dict = {}
+    for number in array:
+        if number in rank_dict:
+            rank_dict[number] += 1
+        else:
+            rank_dict[number] = 1
+    max_count = max(rank_dict.values())
+    return max([number for number, value in rank_dict.items() if value == max_count])
+
+
+# max(set(array), key=array.count)
 
 
 # Test Cases
@@ -27,4 +36,6 @@ solution_2 = 12
 solution_3 =  3
 
 # Method 1 Testing
-print(highest_rank(array_2))
+print(highest_rank(array_1) == solution_1)
+print(highest_rank(array_2) == solution_2)
+print(highest_rank(array_3) == solution_3)
