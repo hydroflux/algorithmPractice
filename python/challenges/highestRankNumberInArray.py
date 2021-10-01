@@ -12,19 +12,19 @@
 '''
 
 # Method 1 => Status Quo
-def highest_rank(arr):
-    # your code here
-    pass
+def highest_rank(array):
+    x = max(set(array), key=array.count)
+    return x
 
 
 # Test Cases
-array_1 = [12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  
-array_2 = [12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  
-array_3 = [12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->  
+array_1 = [12, 10, 8, 12, 7, 6, 4, 10, 12]
+array_2 = [12, 10, 8, 12, 7, 6, 4, 10, 12, 10]
+array_3 = [12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]
 
 solution_1 = 12
 solution_2 = 12
 solution_3 =  3
 
 # Method 1 Testing
-print(highest_rank(array_1))
+print(highest_rank(array_2))

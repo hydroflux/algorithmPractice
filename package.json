@@ -1,5 +1,8 @@
 {
   "name": "algorithm-practice",
   "version": "1.0.0",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0"
+  }
 }
