@@ -21,3 +21,16 @@
     In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.
 
 '''
+
+# Method 1 => Status Quo
+def count_smileys(array):
+    return #the number of valid smiley faces in array/list
+
+
+# Test Cases
+array_1 = [':D',':~)',';~D',':)']
+
+solution_1 = 4
+
+# Method 1 Testing
+print(count_smileys(array_1))
