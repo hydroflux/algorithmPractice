@@ -24,13 +24,27 @@
 
 # Method 1 => Status Quo
 def count_smileys(array):
-    return #the number of valid smiley faces in array/list
+    count = 0
+    for face in array:
+        if face[0] in [':', ';'] and face[-1] in [')', 'D']:
+            if len(face) == 3 and face[1] in ['-', '~'] or len(face) == 2:
+                count += 1
+    return count
 
 
 # Test Cases
 array_1 = [':D',':~)',';~D',':)']
+array_2 = [';]', ':[', ';*', ':$', ';-D']
+array_3 = [':-D', ':-(', ';D', ':-(', ':(', ':-D', ';(', ';D', ';-D']
+array_4 = [':(', ':D', ';-(', ':D', ';D', ';o(', ';-(', ';D', ':oD', ';-D', ':o(', ':(', ';-D', ':D']
 
 solution_1 = 4
+solution_2 = 1
+solution_3 = 5
+solution_4 = 7
 
 # Method 1 Testing
-print(count_smileys(array_1))
+print(count_smileys(array_1) == solution_1)
+print(count_smileys(array_2) == solution_2)
+print(count_smileys(array_3) == solution_3)
+print(count_smileys(array_4) == solution_4)
