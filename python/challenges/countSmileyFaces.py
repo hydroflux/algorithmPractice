@@ -22,6 +22,8 @@
 
 '''
 
+import re
+
 # Method 1 => Status Quo
 def count_smileys(array):
     count = 0
@@ -31,6 +33,15 @@ def count_smileys(array):
                 count += 1
     return count
 
+
+# Method 2 => Using the Regular Expressions Package
+def countSmileys(array):
+    return len(list(re.findall(r"[:;][-~]?[)D]", " ".join(array))))
+
+
+# 're.findall' looks for matches using regular expressions => 'r' starts the 'format block'??;
+# matches to look for contained and separated by brackets ([]);
+# and the '?' after a bracket makes it an optional placeholder
 
 # Test Cases
 array_1 = [':D',':~)',';~D',':)']
@@ -48,3 +59,9 @@ print(count_smileys(array_1) == solution_1)
 print(count_smileys(array_2) == solution_2)
 print(count_smileys(array_3) == solution_3)
 print(count_smileys(array_4) == solution_4)
+
+# Method 2 Testing
+print(countSmileys(array_1) == solution_1)
+print(countSmileys(array_2) == solution_2)
+print(countSmileys(array_3) == solution_3)
+print(countSmileys(array_4) == solution_4)
