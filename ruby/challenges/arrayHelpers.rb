@@ -22,3 +22,36 @@
     numbers.even()    # must return [2, 4]
     numbers.odd()     # must return [1, 3, 5]
 =end
+
+# Method 1 => Status Quo
+class Array
+    def square
+        self.map{ | number | number ** 2 }
+    end
+
+    def cube
+        self.map{ | number | number ** 3 }
+    end
+
+    def average
+        self.reduce(:+) / self.length
+    end
+
+    def even
+        self.select{ | number | number % 2 == 0 }
+    end
+
+    def odd
+        self.select{ | number | number % 2 != 0 }
+    end
+end
+
+# Test Cases
+numbers_1 = [1, 2, 3, 4, 5]
+
+# Method 1 Testing
+p numbers_1.square
+p numbers_1.cube
+p numbers_1.average
+p numbers_1.even
+p numbers_1.odd

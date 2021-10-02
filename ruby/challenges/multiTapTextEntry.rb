@@ -69,6 +69,7 @@ def presses(phrase)
 end
 
 
+# Method 2 = > Mapping over Number Values and Returning Index
 def presses2(phrase)
     press = ["1", " 0", "ABC2", "DEF3", "GHI4", "JKL5", "MNO6", "TUV8", "PQRS7", "WXYZ9"]
     phrase.upcase.chars.map do |c|
