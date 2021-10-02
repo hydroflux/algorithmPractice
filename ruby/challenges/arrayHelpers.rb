@@ -48,10 +48,27 @@ end
 
 # Test Cases
 numbers_1 = [1, 2, 3, 4, 5]
+numbers_2 = [97, 38, 25, 59, 10, 2, 86, 50, 65, 88, 54, 7, 32, 78, 14, 12, 48, 34, 7, 34]
+
+square_1 = [1, 4, 9, 16, 25]
+cube_1 = [1, 8, 27, 64, 125]
+average_1 = 3
+even_1 = [2, 4]
+odd_1 = [1, 3, 5]
+square_2 = [9409, 1444, 625, 3481, 100, 4, 7396, 2500, 4225, 7744, 2916, 49, 1024, 6084, 196, 144, 2304, 1156, 49, 1156]
+cube_2 = [912673, 54872, 15625, 205379, 1000, 8, 636056, 125000, 274625, 681472, 157464, 343, 32768, 474552, 2744, 1728, 110592, 39304, 343, 39304]
+average_2 = 42
+even_2 = [38, 10, 2, 86, 50, 88, 54, 32, 78, 14, 12, 48, 34, 34]
+odd_2 = [97, 25, 59, 65, 7, 7]
 
 # Method 1 Testing
-p numbers_1.square
-p numbers_1.cube
-p numbers_1.average
-p numbers_1.even
-p numbers_1.odd
+p numbers_1.square == square_1
+p numbers_1.cube == cube_1
+p numbers_1.average == average_1
+p numbers_1.even == even_1
+p numbers_1.odd == odd_1
+p numbers_2.square == square_2
+p numbers_2.cube == cube_2
+p numbers_2.average == average_2
+p numbers_2.even == even_2
+p numbers_2.odd == odd_2
