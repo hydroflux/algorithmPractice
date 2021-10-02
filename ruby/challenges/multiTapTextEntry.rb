@@ -70,11 +70,23 @@ end
 
 # Test Cases
 string_1 = 'LOL'
-string_2 = 'HOW ARE U'
+string_2 = 'HOW R U'
+string_3 = "0"
+string_4 = "IS NE1 OUT THERE"
+string_5 = "lol"
+string_6 = "WHERE DO U WANT 2 MEET L8R"
 
-solution_1 = 3
+solution_1 = 9
 solution_2 = 13
+solution_3 = 2
+solution_4 = 31
+solution_5 = 9
+solution_6 = 47
 
 # Method 1 Testing
 p (presses(string_1) == solution_1)
 p (presses(string_2) == solution_2)
+p (presses(string_3) == solution_3)
+p (presses(string_4) == solution_4)
+p (presses(string_5) == solution_5)
+p (presses(string_6) == solution_6)
