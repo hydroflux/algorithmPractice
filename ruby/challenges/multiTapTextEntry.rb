@@ -50,3 +50,14 @@
     (Imagine you work at a phone manufacturer who might be testing out different
     keyboard layouts, and you want to be able to test new ones rapidly.)
 =end
+
+# Method 1 => Status Quo
+def presses(phrase)
+    # some code
+end
+
+# Test Cases
+string_1 = 'L'
+
+# Method 1 Testing
+p presses(string_1)
