@@ -68,6 +68,16 @@ def presses(phrase)
      }
 end
 
+
+def presses2(phrase)
+    press = ["1", " 0", "ABC2", "DEF3", "GHI4", "JKL5", "MNO6", "TUV8", "PQRS7", "WXYZ9"]
+    phrase.upcase.chars.map do |c|
+      1 + press.find { |grp| grp.include?(c) }.index(c)
+    end
+  end
+
+# Find the index (plus 1) of each letter by its number in the array strings
+
 # Test Cases
 string_1 = 'LOL'
 string_2 = 'HOW R U'
@@ -90,3 +100,11 @@ p (presses(string_3) == solution_3)
 p (presses(string_4) == solution_4)
 p (presses(string_5) == solution_5)
 p (presses(string_6) == solution_6)
+
+# Method 2 Testing
+p (presses2(string_1) == solution_1)
+p (presses2(string_2) == solution_2)
+p (presses2(string_3) == solution_3)
+p (presses2(string_4) == solution_4)
+p (presses2(string_5) == solution_5)
+p (presses2(string_6) == solution_6)
