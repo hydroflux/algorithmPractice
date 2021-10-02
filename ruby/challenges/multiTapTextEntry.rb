@@ -52,12 +52,29 @@
 =end
 
 # Method 1 => Status Quo
+PRESSES = {
+    1 => " 1ADGJMPTW",
+    2 => "0BEHKNQUX",
+    3 => "CFILORV",
+    4 => "23456789SZ"
+}
+
 def presses(phrase)
-    # some code
+    phrase.split('').reduce(0){ | agg, char | 
+        value = PRESSES.key(
+            PRESSES.values.find{ | value | value.include? char.upcase }
+        )
+      value ? agg + value : agg
+     }
 end
 
 # Test Cases
-string_1 = 'L'
+string_1 = 'LOL'
+string_2 = 'HOW ARE U'
+
+solution_1 = 3
+solution_2 = 13
 
 # Method 1 Testing
-p presses(string_1)
+p (presses(string_1) == solution_1)
+p (presses(string_2) == solution_2)
