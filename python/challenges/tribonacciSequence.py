@@ -40,6 +40,12 @@ def tribonacci(signature, n):
     return sequence
 
 
+# Method 2 => Updating Signature Rather than Creating New Array & Using List Comprehension
+def tribonacci_2(signature, n):
+    for _ in range(n - 3): signature.append(sum(signature[-3:]))
+    return signature if n >= 3 else signature[:n]
+
+
 # Test Cases
 signature_1 = [1, 1, 1]
 n1 = 10
@@ -68,3 +74,9 @@ print(tribonacci(signature_1, n1) == solution_1)
 print(tribonacci(signature_2, n2) == solution_2)
 print(tribonacci(signature_3, n3) == solution_3)
 print(tribonacci(signature_4, n4) == solution_4)
+
+# Method 2 Testing
+print(tribonacci_2(signature_1, n1) == solution_1)
+print(tribonacci_2(signature_2, n2) == solution_2)
+print(tribonacci_2(signature_3, n3) == solution_3)
+print(tribonacci_2(signature_4, n4) == solution_4)
