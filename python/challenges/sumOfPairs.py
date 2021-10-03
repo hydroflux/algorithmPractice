@@ -46,7 +46,17 @@ def sum_pairs(array, total):
                 distance = k - i
                 if distance == 1: return pairs
     if pairs: return pairs
-                
+
+
+# Method 1 solution unable to be used to solve challenge, not fast enough to complete challenge
+
+# Method 2 => Using Set
+def sumPairs(array, total):
+    cache = set()
+    for i in array:
+        if total - i in cache:
+            return [total - i, i]
+        cache.add(i)
 
 
 # Test Cases
@@ -70,7 +80,7 @@ sum_6 = 2
 
 solution_1 = [3, 7]
 solution_2 = [1, 7]
-solution_3 = [5, 5]
+solution_3 = [3, 7]
 solution_4 = None
 solution_5 = [3, 7]
 solution_6 = [1, 1]
@@ -83,3 +93,11 @@ print(sum_pairs(array_3, sum_3) == solution_3)
 print(sum_pairs(array_4, sum_4) == solution_4)
 print(sum_pairs(array_5, sum_5) == solution_5)
 print(sum_pairs(array_6, sum_6) == solution_6)
+
+# Method 2 Testing
+print(sumPairs(array_1, sum_1) == solution_1)
+print(sumPairs(array_2, sum_2) == solution_2)
+print(sumPairs(array_3, sum_3) == solution_3)
+print(sumPairs(array_4, sum_4) == solution_4)
+print(sumPairs(array_5, sum_5) == solution_5)
+print(sumPairs(array_6, sum_6) == solution_6)
