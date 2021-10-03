@@ -29,3 +29,20 @@
     NOTE: There will also be lists tested of lengths upwards of 10,000,000 elements.
     Be sure your code doesn't time out.
 '''
+
+# Method 1 => Status Quo
+def sum_pairs(array, total):
+    for index in range(len(array)):
+        if sum(array[index: index + 2]) == total:
+            return array[index: index+2]
+
+
+# Test Cases
+array_1 = [11, 3, 7, 5]
+sum_1 = 10
+
+solution_1 = [3, 7]
+
+
+# Method 1 Testing
+print(sum_pairs(array_1, sum_1) == solution_1)
