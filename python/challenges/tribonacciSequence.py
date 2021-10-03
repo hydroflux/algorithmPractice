@@ -32,3 +32,18 @@
 
     [Personal thanks to Professor Jim Fowler on Coursera for his awesome classes that I really recommend to any math enthusiast and for showing me this mathematical curiosity too with his usual contagious passion :)]
 '''
+
+# Method 1 => Status Quo
+def tribonacci(signature, n):
+    pass
+
+
+# Test Cases
+signature_1 = [1, 1, 1]
+n1 = 10
+
+solution_1 = [1, 1, 1, 3, 5, 9, 17, 31, 57, 105]
+
+
+# Method 1 Testing
+print(tribonacci(signature_1, n1))
