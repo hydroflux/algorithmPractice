@@ -35,7 +35,9 @@
 
 # Method 1 => Status Quo
 def tribonacci(signature, n):
-    pass
+    sequence = [*signature]
+    [sequence.append(sum(sequence[-3:])) for _ in range(n - 3)]
+    return sequence
 
 
 # Test Cases
@@ -46,4 +48,4 @@ solution_1 = [1, 1, 1, 3, 5, 9, 17, 31, 57, 105]
 
 
 # Method 1 Testing
-print(tribonacci(signature_1, n1))
+print(tribonacci(signature_1, n1) == solution_1)
