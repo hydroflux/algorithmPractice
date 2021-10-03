@@ -35,7 +35,7 @@
 
 # Method 1 => Status Quo
 def tribonacci(signature, n):
-    sequence = [*signature]
+    sequence = [*signature] if n >= 3 else [*signature[:n]]
     [sequence.append(sum(sequence[-3:])) for _ in range(n - 3)]
     return sequence
 
@@ -44,8 +44,27 @@ def tribonacci(signature, n):
 signature_1 = [1, 1, 1]
 n1 = 10
 
-solution_1 = [1, 1, 1, 3, 5, 9, 17, 31, 57, 105]
+signature_2 = [1, 1, 1]
+n2 = 1
 
+signature_3 = [300, 200, 100]
+n3 = 0
+
+signature_4 = [0.5, 0.5, 0.5]
+n4 = 30
+
+
+solution_1 = [1, 1, 1, 3, 5, 9, 17, 31, 57, 105]
+solution_2 = [1]
+solution_3 = []
+solution_4 = [
+    0.5, 0.5, 0.5, 1.5, 2.5, 4.5, 8.5, 15.5, 28.5, 52.5, 96.5, 177.5, 326.5, 600.5,
+    1104.5, 2031.5, 3736.5, 6872.5, 12640.5, 23249.5, 42762.5, 78652.5, 144664.5,
+    266079.5, 489396.5, 900140.5, 1655616.5, 3045153.5, 5600910.5, 10301680.5
+    ]
 
 # Method 1 Testing
 print(tribonacci(signature_1, n1) == solution_1)
+print(tribonacci(signature_2, n2) == solution_2)
+print(tribonacci(signature_3, n3) == solution_3)
+print(tribonacci(signature_4, n4) == solution_4)
