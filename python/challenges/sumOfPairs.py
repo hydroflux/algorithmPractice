@@ -34,15 +34,17 @@
 def sum_pairs(array, total):
     pairs = []
     distance = len(array)
-    for i in range(len(array)):
-        for j in range(len(array) - (i + 1)):
-            k = array[i + 1:][j]
-            j += (i + 1)
-            if array[i] + k == total:
-                if j - i < distance:
-                    pairs = [array[i], k]
-                    distance = j - i
-                    if distance == 1: return pairs
+    for i in range(len(array) - 1):
+        j = array[i]
+        for k in range(distance):
+            k += (i + 1)
+            if k >= len(array):
+                continue
+            l = array[k]
+            if j + l == total and k - i < distance:
+                pairs = [j, l]
+                distance = k - i
+                if distance == 1: return pairs
     if pairs: return pairs
                 
 
@@ -75,10 +77,9 @@ solution_6 = [1, 1]
 
 
 # Method 1 Testing
-# print(sum_pairs(array_1, sum_1) == solution_1)
-# print(sum_pairs(array_2, sum_2) == solution_2)
-# print(sum_pairs(array_3, sum_3) == solution_3)
-# print(sum_pairs(array_4, sum_4) == solution_4)
-# print(sum_pairs(array_5, sum_5) == solution_5)
-# print(sum_pairs(array_6, sum_6) == solution_6)
-print(sum_pairs(array_6, sum_6))
+print(sum_pairs(array_1, sum_1) == solution_1)
+print(sum_pairs(array_2, sum_2) == solution_2)
+print(sum_pairs(array_3, sum_3) == solution_3)
+print(sum_pairs(array_4, sum_4) == solution_4)
+print(sum_pairs(array_5, sum_5) == solution_5)
+print(sum_pairs(array_6, sum_6) == solution_6)
