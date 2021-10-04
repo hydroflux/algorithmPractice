@@ -52,3 +52,22 @@
 
     Hopefully test cases will complete my explanation.
 '''
+
+# Method 1 => Status Quo
+def super_street_fighter_selection(fighters, position, moves):
+  return []
+
+
+# Test Cases
+fighters_1 = [
+	[       "",    "Ryu",  "E.Honda",  "Blanka",   "Guile", ""       ],
+	[ "Balrog",    "Ken",  "Chun Li", "Zangief", "Dhalsim", "Sagat"  ],
+	[   "Vega", "T.Hawk", "Fei Long",  "Deejay",   "Cammy", "M.Bison"]
+]
+position_1 = (0,0)
+moves_1 =  []
+
+solution_1 = []
+
+# Method 1 Testing
+print(super_street_fighter_selection(fighters_1, position_1, moves_1))
