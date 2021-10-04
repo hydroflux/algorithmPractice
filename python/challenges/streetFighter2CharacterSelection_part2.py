@@ -90,6 +90,59 @@ def superStreetFighterSelection(fighters, initial_position, moves):
     return fighter_options
 
 
+# Method 3 => Creating A Class
+class PositionTracker:
+    def __init__(self, grid, position):
+        self.grid = grid
+        self.row = position[0]
+        self.column = position[1]
+    
+    def update_position(self, move):
+        if move == 'up':
+            self.move_up()
+        if move == 'down':
+            self.move_down()
+        if move == 'left':
+            self.move_left()
+        if move == 'right':
+            self.move_right()
+
+    def move_up(self):
+        if self.row > 0 and self.is_slot_valid(self.row-1, self.column):
+            self.row -= 1
+    
+    def move_down(self):
+        if self.row < len(self.grid)-1 and self.is_slot_valid(self.row+1, self.column):
+            self.row += 1
+            
+    def move_left(self):
+        while True:
+            self.column = (self.column-1) % len(self.grid[0])
+            if self.is_slot_valid(self.row, self.column):
+                break
+            
+    def move_right(self):
+        while True:
+            self.column = (self.column+1) % len(self.grid[0])
+            if self.is_slot_valid(self.row, self.column):
+                break
+                
+    def get_position(self):
+        return (self.row, self.column)
+    
+    def is_slot_valid(self, r, c):
+        return True if self.grid[r][c] else False
+    
+def fighter_selection(fighters, position, moves):
+    pt = PositionTracker(fighters, position)
+    ans = []
+    for move in moves:
+        pt.update_position(move)
+        r, c = pt.get_position()
+        ans.append(fighters[r][c])
+    return ans
+
+
 # Test Cases
 fighters_1 = [
 	[       "",    "Ryu",  "E.Honda",  "Blanka",   "Guile", ""       ],
@@ -171,3 +224,11 @@ print(superStreetFighterSelection(fighters_1, initial_position_3, moves_3) == so
 print(superStreetFighterSelection(fighters_1, initial_position_4, moves_4) == solution_4)
 print(superStreetFighterSelection(fighters_5, initial_position_5, moves_5) == solution_5)
 print(superStreetFighterSelection(fighters_6, initial_position_6, moves_6) == solution_6)
+
+# Method 3 Testing
+print(fighter_selection(fighters_1, initial_position_1, moves_1) == solution_1)
+print(fighter_selection(fighters_1, initial_position_2, moves_2) == solution_2)
+print(fighter_selection(fighters_1, initial_position_3, moves_3) == solution_3)
+print(fighter_selection(fighters_1, initial_position_4, moves_4) == solution_4)
+print(fighter_selection(fighters_5, initial_position_5, moves_5) == solution_5)
+print(fighter_selection(fighters_6, initial_position_6, moves_6) == solution_6)
