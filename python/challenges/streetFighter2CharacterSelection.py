@@ -83,7 +83,7 @@ def street_fighter_selection(fighters, initial_position, moves):
         elif move == 'right':
             position = (y, x + 1) if x != (len(fighters[y]) - 1) else (y, 0)
         if positions[-1] != position: positions.append(position)
-    return positions
+    return [fighters[position[0]][position[1]] for position in positions]
 
 
 # Test Cases
@@ -97,4 +97,4 @@ moves_1 = ['up', 'left', 'right', 'left', 'left']
 solution_1 = ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog']
 
 # Method 1 Testing
-print(street_fighter_selection(fighters_1, initial_position_1, moves_1))
+print(street_fighter_selection(fighters_1, initial_position_1, moves_1) == solution_1)
