@@ -66,7 +66,7 @@ def super_street_fighter_selection(fighters, initial_position, moves):
     y, x = initial_position
     for move in moves:
         dy, dx = MOVES[move]
-        if not y + dy >= len(fighters):
+        if 0 <= y + dy < len(fighters):
             if not fighters[y + dy][x] == '':
                 y += dy
         x = (x + dx) % len(fighters[y])
@@ -103,6 +103,22 @@ moves_5 = ["left"]*2 + ["down"] + ["right"]*4 + ["down"] + \
     ["left"]*4 + ["down"] + ["right"]*2 + ["down"] + \
     ["right"]*3 + ["down"]+["left"]*3+["down"]+["left"]*3
 
+fighters_6 = [
+    ['Balrog', 'Ken', 'Chun Li', ''],
+    ['Vega', '', 'Fei Long', 'Balrog'],
+    ['Deejay', 'Cammy', '', 'T.Hawk'],
+    ['', 'Ryu', 'E.Honda', 'Cammy'],
+    ['Blanka', 'Guile', '', 'Chun Li'],
+    ['M.Bison', 'Zangief', 'Dhalsim', 'Sagat']
+    ]
+initial_position_6 = (1, 3)
+moves_6 = [
+    'left', 'up', 'left', 'down', 'right', 'right', 'left',
+    'right', 'right', 'left', 'right', 'up', 'right', 'down',
+    'down', 'right', 'left', 'up', 'right', 'left', 'down'
+    ]
+
+
 solution_1 = []
 solution_2 = [
     'Chun Li', 'Ken', 'Balrog', 'Sagat', 'Dhalsim', 'Zangief', 'Chun Li', 'Ken'
@@ -119,6 +135,11 @@ solution_5 = [
     'M.Bison', 'Zangief', 'Dhalsim', 'Dhalsim', 'Zangief', 'M.Bison', 'Sagat',
     'T.Hawk', 'Cammy', 'Deejay', 'T.Hawk'
     ]
+solution_6 = [
+    'Fei Long', 'Chun Li', 'Ken', 'Ken', 'Chun Li', 'Balrog',
+    'Chun Li', 'Balrog', 'Ken', 'Balrog', 'Ken', 'Ken', 'Chun Li',
+    'Fei Long', 'Fei Long', 'Balrog', 'Fei Long', 'Chun Li',
+    'Balrog','Chun Li', 'Fei Long']
 
 # Method 1 Testing
 print(super_street_fighter_selection(fighters_1, initial_position_1, moves_1) == solution_1)
@@ -126,3 +147,4 @@ print(super_street_fighter_selection(fighters_1, initial_position_2, moves_2) ==
 print(super_street_fighter_selection(fighters_1, initial_position_3, moves_3) == solution_3)
 print(super_street_fighter_selection(fighters_1, initial_position_4, moves_4) == solution_4)
 print(super_street_fighter_selection(fighters_5, initial_position_5, moves_5) == solution_5)
+print(super_street_fighter_selection(fighters_6, initial_position_6, moves_6) == solution_6)
