@@ -87,6 +87,27 @@ def street_fighter_selection(fighters, initial_position, moves):
     return [fighters[position[0]][position[1]] for position in positions]
 
 
+# Method 2 => Using A 'Move' Dict
+MOVES = {
+    "up": (-1, 0),
+    "down": (1, 0),
+    "right": (0, 1),
+    "left": (0, -1)
+}
+
+def streetFighterSelection(fighters, initial_position, moves):
+    y, x = initial_position
+    fighter_options = []
+    for move in moves:
+        dy, dx = MOVES[move]
+        y += dy
+        if not 0 <= y < len(fighters):
+            y -= dy
+        x = (x + dx) % len(fighters[y])
+        fighter_options.append(fighters[y][x])
+    return fighter_options
+
+
 # Test Cases
 fighters = [
     ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
@@ -121,3 +142,10 @@ print(street_fighter_selection(fighters, initial_position, moves_2) == solution_
 print(street_fighter_selection(fighters, initial_position, moves_3) == solution_3)
 print(street_fighter_selection(fighters, initial_position, moves_4) == solution_4)
 print(street_fighter_selection(fighters, initial_position, moves_5) == solution_5)
+
+# Method 2 Testing
+print(streetFighterSelection(fighters, initial_position, moves_1) == solution_1)
+print(streetFighterSelection(fighters, initial_position, moves_2) == solution_2)
+print(streetFighterSelection(fighters, initial_position, moves_3) == solution_3)
+print(streetFighterSelection(fighters, initial_position, moves_4) == solution_4)
+print(streetFighterSelection(fighters, initial_position, moves_5) == solution_5)
