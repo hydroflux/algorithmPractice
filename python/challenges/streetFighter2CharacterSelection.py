@@ -67,3 +67,21 @@
 
     ['E.Honda', 'Chun Li', 'Ken', 'M.Bison', 'Sagat', 'Dhalsim', 'Sagat']
 '''
+
+# Method 1 => Status Quo
+def street_fighter_selection(fighters, initial_position, moves):
+    pass
+
+
+# Test Cases
+fighters_1 = [
+    ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
+    ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
+]
+initial_position_1 = (0,0)
+moves_1 = ['up', 'left', 'right', 'left', 'left']
+
+solution_1 = ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog']
+
+# Method 1 Testing
+print(street_fighter_selection(fighters_1, moves_1, solution_1))
