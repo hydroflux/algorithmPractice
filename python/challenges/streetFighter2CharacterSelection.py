@@ -70,7 +70,20 @@
 
 # Method 1 => Status Quo
 def street_fighter_selection(fighters, initial_position, moves):
-    pass
+    positions = [initial_position]
+    for move in moves:
+        y = positions[-1][0]
+        x = positions[-1][1]
+        if move == 'up':
+            position = (0, x)
+        elif move == 'down':
+            position = (1, x)
+        elif move == 'left':
+            position = (y, x - 1) if x != 0 else (y, (len(fighters[y]) - 1))
+        elif move == 'right':
+            position = (y, x + 1) if x != (len(fighters[y]) - 1) else (y, 0)
+        if positions[-1] != position: positions.append(position)
+    return positions
 
 
 # Test Cases
@@ -84,4 +97,4 @@ moves_1 = ['up', 'left', 'right', 'left', 'left']
 solution_1 = ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog']
 
 # Method 1 Testing
-print(street_fighter_selection(fighters_1, moves_1, solution_1))
+print(street_fighter_selection(fighters_1, initial_position_1, moves_1))
