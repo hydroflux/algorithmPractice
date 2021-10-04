@@ -82,19 +82,42 @@ def street_fighter_selection(fighters, initial_position, moves):
             position = (y, x - 1) if x != 0 else (y, (len(fighters[y]) - 1))
         elif move == 'right':
             position = (y, x + 1) if x != (len(fighters[y]) - 1) else (y, 0)
-        if positions[-1] != position: positions.append(position)
+        positions.append(position)
+    positions.pop(0)
     return [fighters[position[0]][position[1]] for position in positions]
 
 
 # Test Cases
-fighters_1 = [
+fighters = [
     ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
     ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
-]
-initial_position_1 = (0,0)
+    ]
+initial_position = (0,0)
 moves_1 = ['up', 'left', 'right', 'left', 'left']
+moves_2 = [] # No movement
+moves_3 = [
+    'left', 'left', 'left', 'left', 'left', 'left', 'left', 'left'
+    ] # left 8 times
+moves_4 = [
+    'up', 'left', 'left', 'left', 'left', 'left', 'left', 'down',
+    'right', 'right', 'right', 'right', 'right', 'right'
+    ] # all characters
+moves_5 = [
+    'down', 'right', 'up', 'left', 'down', 'right', 'up', 'left'
+    ] # counter-clockwise twice
 
 solution_1 = ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog']
+solution_2 = []
+solution_3 = ['Vega', 'Balrog', 'Guile', 'Blanka', 'E.Honda', 'Ryu', 'Vega', 'Balrog']
+solution_4 = [
+    'Ryu', 'Vega', 'Balrog', 'Guile', 'Blanka', 'E.Honda', 'Ryu',
+    'Ken', 'Chun Li', 'Zangief', 'Dhalsim', 'Sagat', 'M.Bison', 'Ken'
+    ]
+solution_5 = ['Ken', 'Chun Li', 'E.Honda', 'Ryu', 'Ken', 'Chun Li', 'E.Honda', 'Ryu']
 
 # Method 1 Testing
-print(street_fighter_selection(fighters_1, initial_position_1, moves_1) == solution_1)
+print(street_fighter_selection(fighters, initial_position, moves_1) == solution_1)
+print(street_fighter_selection(fighters, initial_position, moves_2) == solution_2)
+print(street_fighter_selection(fighters, initial_position, moves_3) == solution_3)
+print(street_fighter_selection(fighters, initial_position, moves_4) == solution_4)
+print(street_fighter_selection(fighters, initial_position, moves_5) == solution_5)
