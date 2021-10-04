@@ -54,8 +54,25 @@
 '''
 
 # Method 1 => Status Quo
-def super_street_fighter_selection(fighters, position, moves):
-  return []
+MOVES = {
+    "up": (-1, 0),
+    "down": (1, 0),
+    "right": (0, 1),
+    "left": (0, -1)
+}
+
+def super_street_fighter_selection(fighters, initial_position, moves):
+    fighter_options = []
+    y, x = initial_position
+    for move in moves:
+        dy, dx = MOVES[move]
+        if not y + dy >= len(fighters):
+            if not fighters[y + dy][x] == '':
+                y += dy
+        x = (x + dx) % len(fighters[y])
+        while fighters[y][x] == '': x = (x + dx) % len(fighters[y])
+        fighter_options.append(fighters[y][x])
+    return fighter_options
 
 
 # Test Cases
@@ -63,11 +80,49 @@ fighters_1 = [
 	[       "",    "Ryu",  "E.Honda",  "Blanka",   "Guile", ""       ],
 	[ "Balrog",    "Ken",  "Chun Li", "Zangief", "Dhalsim", "Sagat"  ],
 	[   "Vega", "T.Hawk", "Fei Long",  "Deejay",   "Cammy", "M.Bison"]
-]
-position_1 = (0,0)
-moves_1 =  []
+    ]
+initial_position_1 = (0, 0)
+moves_1 =  []  # no movement
+initial_position_2 = (1, 3)
+moves_2 =  ["left"]*8  # rotate horizontally
+initial_position_3 = (0, 2)
+moves_3 =  ["right"]*8  # rotate horizontally with empty spaces
+initial_position_4 = (1, 0)
+moves_4 = ["down"]*2 + ["up"]*3 + ["down"]*2  # move vertically with empty spaces
+
+fighters_5 = [
+	[        "",     "Ryu",  "E.Honda",  "Cammy" ],
+	[  "Balrog",     "Ken",  "Chun Li",       "" ],
+	[    "Vega",        "", "Fei Long", "Balrog",],
+    [  "Blanka",   "Guile",         "", "Chun Li"],
+    [ "M.Bison", "Zangief",  "Dhalsim", "Sagat"  ],
+    [  "Deejay",   "Cammy",         "", "T.Hawk" ]
+    ]
+initial_position_5 = (0, 3)
+moves_5 = ["left"]*2 + ["down"] + ["right"]*4 + ["down"] + \
+    ["left"]*4 + ["down"] + ["right"]*2 + ["down"] + \
+    ["right"]*3 + ["down"]+["left"]*3+["down"]+["left"]*3
 
 solution_1 = []
+solution_2 = [
+    'Chun Li', 'Ken', 'Balrog', 'Sagat', 'Dhalsim', 'Zangief', 'Chun Li', 'Ken'
+    ]
+solution_3 = [
+    'Blanka', 'Guile', 'Ryu', 'E.Honda', 'Blanka', 'Guile', 'Ryu', 'E.Honda'
+    ]
+solution_4 = [
+    'Vega', 'Vega', 'Balrog', 'Balrog', 'Balrog', 'Vega', 'Vega'
+]
+solution_5 = [
+    'E.Honda', 'Ryu', 'Ken', 'Chun Li', 'Balrog', 'Ken', 'Chun Li', 'Fei Long',
+    'Vega', 'Balrog', 'Fei Long', 'Vega', 'Blanka', 'Guile', 'Chun Li', 'Sagat',
+    'M.Bison', 'Zangief', 'Dhalsim', 'Dhalsim', 'Zangief', 'M.Bison', 'Sagat',
+    'T.Hawk', 'Cammy', 'Deejay', 'T.Hawk'
+    ]
 
 # Method 1 Testing
-print(super_street_fighter_selection(fighters_1, position_1, moves_1))
+print(super_street_fighter_selection(fighters_1, initial_position_1, moves_1) == solution_1)
+print(super_street_fighter_selection(fighters_1, initial_position_2, moves_2) == solution_2)
+print(super_street_fighter_selection(fighters_1, initial_position_3, moves_3) == solution_3)
+print(super_street_fighter_selection(fighters_1, initial_position_4, moves_4) == solution_4)
+print(super_street_fighter_selection(fighters_5, initial_position_5, moves_5) == solution_5)
