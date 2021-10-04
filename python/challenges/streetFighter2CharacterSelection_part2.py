@@ -75,6 +75,21 @@ def super_street_fighter_selection(fighters, initial_position, moves):
     return fighter_options
 
 
+# Method 2 => Simplifying Method 1
+def superStreetFighterSelection(fighters, initial_position, moves):
+    fighter_options = []
+    y, x = initial_position
+    for move in moves:
+        dy, dx = MOVES[move]
+        y += dy
+        if not 0 <= y < len(fighters) or not fighters[y][x]:
+            y -= dy
+        x = (x + dx) % len(fighters[y])
+        while not fighters[y][x]: x = (x + dx) % len(fighters[y])
+        fighter_options.append(fighters[y][x])
+    return fighter_options
+
+
 # Test Cases
 fighters_1 = [
 	[       "",    "Ryu",  "E.Honda",  "Blanka",   "Guile", ""       ],
@@ -148,3 +163,11 @@ print(super_street_fighter_selection(fighters_1, initial_position_3, moves_3) ==
 print(super_street_fighter_selection(fighters_1, initial_position_4, moves_4) == solution_4)
 print(super_street_fighter_selection(fighters_5, initial_position_5, moves_5) == solution_5)
 print(super_street_fighter_selection(fighters_6, initial_position_6, moves_6) == solution_6)
+
+# Method 2 Testing
+print(superStreetFighterSelection(fighters_1, initial_position_1, moves_1) == solution_1)
+print(superStreetFighterSelection(fighters_1, initial_position_2, moves_2) == solution_2)
+print(superStreetFighterSelection(fighters_1, initial_position_3, moves_3) == solution_3)
+print(superStreetFighterSelection(fighters_1, initial_position_4, moves_4) == solution_4)
+print(superStreetFighterSelection(fighters_5, initial_position_5, moves_5) == solution_5)
+print(superStreetFighterSelection(fighters_6, initial_position_6, moves_6) == solution_6)
