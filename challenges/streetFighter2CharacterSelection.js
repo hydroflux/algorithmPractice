@@ -67,3 +67,21 @@
 
     ['E.Honda', 'Chun Li', 'Ken', 'M.Bison', 'Sagat', 'Dhalsim', 'Sagat']
 */
+
+// Method 1 => Status Quo
+const streetFighterSelection = (fighters, position, moves) => {
+    return fighters
+}
+
+// Test Cases
+fighters = [
+    ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
+    ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
+    ]
+initial_position = [0,0]
+moves_1 = ['up', 'left', 'right', 'left', 'left']
+
+solution_1 = ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog']
+
+// Method 1 Testing
+console.log(streetFighterSelection(fighters, position, moves))
