@@ -105,17 +105,46 @@ function streetFighterSelection(fighters, position, moves){
     return result;
   }
 
-// Test Cases
-const fighters = [
-    ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
-    ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
-    ]
-const initial_position = [0,0]
-const moves_1 = ['left','left']
-// const moves_1 = ['up', 'left', 'right', 'left', 'left']
 
-const solution_1 = ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog']
+//   Method 2 => Case Statement
+function streetFighterSelection_2(fighters, position, moves){
+  
+    var resFighters = [];
+    
+    moves.forEach(function(m) {
+      switch(m) {
+        case 'up' : { position[0] -= 1; break;}
+        case 'left' : { position[1] -= 1; break;}
+        case 'right' : { position[1] += 1; break;}
+        case 'down' : { position[0] += 1; break;}
+        
+      };
+      takeFighters(position);
+    });
+    
+    function takeFighters(position) {
+      if(position[0] > fighters.length - 1) position[0] = fighters.length - 1;
+      if(position[0] < 0) position[0] = 0;
+      if(position[1] < 0) position[1] = fighters[0].length - 1;
+      if(position[1] > fighters[0].length - 1) position[1] = 0;
+      
+      resFighters.push(fighters[position[0]][position[1]]);
+    }
+    
+    return resFighters;
+  }
+
+// Test Cases
+let fighters = [
+	["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
+	["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
+]
+let initial_position = [0,0]
+let moves_1 = ['up', 'left', 'right', 'left', 'left']
+
+let solution_1 = ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog']
 
 // Method 1 Testing
+// console.log(streetFighterSelection(fighters, initial_position, moves_1))
 console.log(streetFighterSelection(fighters, initial_position, moves_1))
-// console.log(equivalentArrays(streetFighterSelection(fighters, initial_position, moves_1), solution_1 ))
+console.log(streetFighterSelection_2(fighters, initial_position, moves_1))
