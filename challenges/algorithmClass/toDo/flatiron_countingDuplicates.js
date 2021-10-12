@@ -38,6 +38,19 @@ const countNumberDuplicates = (string) => {
     return counter.length
 }
 
+// Method 2 => Using JS Object
+const countNumberDuplicates_2 = (string) => {
+    let counter = {}
+    for ( let i = 0 ; i < string.length ; i ++ ){
+        let char = string[i].toLowerCase()
+
+        counter[ char ]
+        ? counter[ char ] += 1
+        : counter[ char ] = 1
+    }
+
+    return Object.values(counter).filter( char => char > 1).length
+}
 
 // Test Cases
 let string_1 = "aBcde"
@@ -54,3 +67,11 @@ console.log(countNumberDuplicates(string_3) === 2)
 console.log(countNumberDuplicates(string_4) === 4)
 console.log(countNumberDuplicates(string_5) === 7)
 console.log(countNumberDuplicates(string_6) === 3)
+
+// Method 2 Testing
+console.log(countNumberDuplicates_2(string_1) === 0)
+console.log(countNumberDuplicates_2(string_2) === 2)
+console.log(countNumberDuplicates_2(string_3) === 2)
+console.log(countNumberDuplicates_2(string_4) === 4)
+console.log(countNumberDuplicates_2(string_5) === 7)
+console.log(countNumberDuplicates_2(string_6) === 3)
