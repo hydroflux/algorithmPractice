@@ -68,20 +68,54 @@
     ['E.Honda', 'Chun Li', 'Ken', 'M.Bison', 'Sagat', 'Dhalsim', 'Sagat']
 */
 
-// Method 1 => Status Quo
-const streetFighterSelection = (fighters, position, moves) => {
-    return fighters
+// HELPER FUNCTION
+// Determine if two sorted arrays are equivalent to one another
+const equivalentArrays = (a, b) => {
+    if ( a === b ) return true
+    if ( a == null || b == null ) return false
+    if ( a.length !== b.length ) return false
+
+    for ( let i = 0; i < a.length; i++ ){
+        if ( a.sort()[i] !== b.sort()[i]) return false
+    }
+    return true
 }
 
+// Method 1 => Status Quo
+function streetFighterSelection(fighters, position, moves){
+    let result = [];
+    
+    moves.forEach(function(move) {
+      if (move === "up") {
+        position[0] = 0;
+      }
+      else if (move === "down") {
+        position[0] = 1;
+      }
+      else if (move === "right") {
+        position[1] = (position[1] === 5) ? 0 : position[1] + 1;
+      }
+      else if (move === "left") {
+        position[1] = (position[1] === 0) ? 5 : position[1] - 1;
+      }
+      
+      result.push(fighters[position[0]][position[1]]);
+    });
+    
+    return result;
+  }
+
 // Test Cases
-fighters = [
+const fighters = [
     ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
     ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
     ]
-initial_position = [0,0]
-moves_1 = ['up', 'left', 'right', 'left', 'left']
+const initial_position = [0,0]
+const moves_1 = ['left','left']
+// const moves_1 = ['up', 'left', 'right', 'left', 'left']
 
-solution_1 = ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog']
+const solution_1 = ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog']
 
 // Method 1 Testing
-console.log(streetFighterSelection(fighters, position, moves))
+console.log(streetFighterSelection(fighters, initial_position, moves_1))
+// console.log(equivalentArrays(streetFighterSelection(fighters, initial_position, moves_1), solution_1 ))
