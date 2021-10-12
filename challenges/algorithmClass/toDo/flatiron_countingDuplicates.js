@@ -52,6 +52,14 @@ const countNumberDuplicates_2 = (string) => {
     return Object.values(counter).filter( char => char > 1).length
 }
 
+// Method 3 => Regex
+const countNumberDuplicates_3 = string => (string.toLowerCase()
+                                                .split('')
+                                                .sort()
+                                                .join('')
+                                                .match(/([^])\1+/g) || [])
+                                                .length
+
 // Test Cases
 let string_1 = "aBcde"
 let string_2 = "aabbcde"
@@ -75,3 +83,11 @@ console.log(countNumberDuplicates_2(string_3) === 2)
 console.log(countNumberDuplicates_2(string_4) === 4)
 console.log(countNumberDuplicates_2(string_5) === 7)
 console.log(countNumberDuplicates_2(string_6) === 3)
+
+// Method 3 Testing
+console.log(countNumberDuplicates_3(string_1) === 0)
+console.log(countNumberDuplicates_3(string_2) === 2)
+console.log(countNumberDuplicates_3(string_3) === 2)
+console.log(countNumberDuplicates_3(string_4) === 4)
+console.log(countNumberDuplicates_3(string_5) === 7)
+console.log(countNumberDuplicates_3(string_6) === 3)
